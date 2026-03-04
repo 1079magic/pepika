@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Checkout — Pepika</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="promo-bar">🔒 Secure Checkout &nbsp;|&nbsp; <strong>SSL Encrypted</strong></div>
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="site-logo">Pepika</a>
+    <nav class="site-nav" id="site-nav">
+      <div class="nav-item"><a href="../index.html" class="nav-link">Home</a></div>
+      <div class="nav-item"><a href="shop.html" class="nav-link">Shop</a></div>
+      <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+    </nav>
+    <div class="header-utils">
+      <a href="account.html" class="util-btn"><i class="fa-regular fa-circle-user"></i></a>
+      <button class="util-btn" id="cart-toggle"><i class="fa-solid fa-bag-shopping"></i><span class="util-badge" id="cart-badge">0</span></button>
+      <button class="hamburger" id="hamburger" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+  <div class="drawer-head"><h2>Your Cart</h2><button class="drawer-close" id="cart-close"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="drawer-body" id="cart-body"><div class="cart-empty" id="cart-empty"><i class="fa-solid fa-bag-shopping"></i><p>Your cart is empty.</p></div></div>
+  <div class="drawer-foot" id="cart-foot" style="display:none">
+    <div class="free-ship-bar"><p id="free-ship-msg">Add <strong>€100.00</strong> more for free shipping!</p><div class="free-ship-track"><div class="free-ship-fill" id="free-ship-fill" style="width:0%"></div></div></div>
+    <div class="cart-subtotal"><span>Subtotal (<span id="cart-item-count">0</span> items)</span><span id="cart-subtotal-val">€0.00</span></div>
+    <div class="cart-total"><span>Total</span><span id="cart-total-val">€0.00</span></div>
+    <a href="checkout.html" class="btn btn-primary btn-full">Proceed to Checkout</a>
+    <button class="btn btn-ghost btn-full" id="cart-keep-shopping" style="margin-top:.5rem">Continue Shopping</button>
+  </div>
+</aside>
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toast-msg">Done!</span></div>
+
+<section class="section-sm">
+  <div class="container">
+
+    <h1 class="checkout-title"><i class="fa-solid fa-lock"></i> Checkout</h1>
+
+    <!-- STEP INDICATORS -->
+    <div class="checkout-steps" id="checkout-steps">
+      <div class="checkout-step active" data-step="1">
+        <div class="step-num">1</div>
+        <div class="step-label">Information</div>
+      </div>
+      <div class="checkout-step-line"></div>
+      <div class="checkout-step" data-step="2">
+        <div class="step-num">2</div>
+        <div class="step-label">Shipping</div>
+      </div>
+      <div class="checkout-step-line"></div>
+      <div class="checkout-step" data-step="3">
+        <div class="step-num">3</div>
+        <div class="step-label">Payment</div>
+      </div>
+    </div>
+
+    <div class="checkout-layout">
+      <!-- LEFT: FORM PANELS -->
+      <div class="checkout-form-col">
+
+        <!-- STEP 1: CUSTOMER INFO -->
+        <div class="checkout-panel" id="panel-1">
+          <h3>Customer Information</h3>
+          <div class="form-fields">
+            <div class="form-row-2">
+              <div class="field"><label>First Name <span class="req">*</span></label><input type="text" id="co-fname" placeholder="Marko"><span class="err">Required</span></div>
+              <div class="field"><label>Last Name <span class="req">*</span></label><input type="text" id="co-lname" placeholder="Kovač"><span class="err">Required</span></div>
+            </div>
+            <div class="field"><label>Email Address <span class="req">*</span></label><input type="email" id="co-email" placeholder="marko@example.com"><span class="err">Valid email required</span></div>
+            <div class="field"><label>Phone Number <span class="req">*</span></label><input type="tel" id="co-phone" placeholder="+385 99 000 0000"><span class="err">Required</span></div>
+            <div class="field"><label>Order Notes (optional)</label><textarea id="co-notes" rows="3" placeholder="Custom text for your order, special instructions…"></textarea></div>
+            <label class="checkbox-label"><input type="checkbox" id="co-create-account"> Create an account for faster checkout next time</label>
+          </div>
+          <div class="checkout-btns">
+            <a href="cart.html" class="btn btn-ghost"><i class="fa-solid fa-arrow-left"></i> Back to Cart</a>
+            <button class="btn btn-primary" id="step1-next">Continue to Shipping <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- STEP 2: SHIPPING -->
+        <div class="checkout-panel" id="panel-2" style="display:none">
+          <h3>Shipping Method</h3>
+          <div class="shipping-options">
+            <label class="ship-option">
+              <input type="radio" name="shipping" value="standard" checked>
+              <div class="ship-option-body">
+                <div class="ship-option-name"><strong>Standard Delivery</strong><span>3–5 business days</span></div>
+                <span class="ship-price" id="standard-price">€4.99</span>
+              </div>
+            </label>
+            <label class="ship-option">
+              <input type="radio" name="shipping" value="express">
+              <div class="ship-option-body">
+                <div class="ship-option-name"><strong>Express Delivery</strong><span>1–2 business days</span></div>
+                <span class="ship-price">€9.99</span>
+              </div>
+            </label>
+            <label class="ship-option">
+              <input type="radio" name="shipping" value="boxnow">
+              <div class="ship-option-body">
+                <div class="ship-option-name"><strong>Box Now Parcel Locker</strong><span>2–4 business days</span></div>
+                <span class="ship-price">€2.99</span>
+              </div>
+            </label>
+          </div>
+
+          <h3 style="margin-top:var(--sp-6)">Shipping Address</h3>
+          <div class="form-fields" style="margin-top:var(--sp-4)">
+            <div class="field"><label>Street Address <span class="req">*</span></label><input type="text" id="co-street" placeholder="Ilica 42"><span class="err">Required</span></div>
+            <div class="form-row-2">
+              <div class="field"><label>City <span class="req">*</span></label><input type="text" id="co-city" placeholder="Zagreb"><span class="err">Required</span></div>
+              <div class="field"><label>Postal Code <span class="req">*</span></label><input type="text" id="co-zip" placeholder="10000"><span class="err">Required</span></div>
+            </div>
+            <div class="field"><label>Country</label>
+              <select id="co-country">
+                <option value="HR" selected>Croatia</option>
+                <option value="SI">Slovenia</option>
+                <option value="BA">Bosnia &amp; Herzegovina</option>
+                <option value="RS">Serbia</option>
+                <option value="AT">Austria</option>
+                <option value="DE">Germany</option>
+                <option value="Other">Other EU</option>
+              </select>
+            </div>
+          </div>
+          <div class="checkout-btns">
+            <button class="btn btn-ghost" id="step2-back"><i class="fa-solid fa-arrow-left"></i> Back</button>
+            <button class="btn btn-primary" id="step2-next">Continue to Payment <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- STEP 3: PAYMENT -->
+        <div class="checkout-panel" id="panel-3" style="display:none">
+          <h3>Payment Method</h3>
+          <div class="payment-methods">
+            <label class="pay-method">
+              <input type="radio" name="payment" value="card" checked>
+              <span><i class="fa-solid fa-credit-card"></i> Credit / Debit Card</span>
+            </label>
+            <label class="pay-method">
+              <input type="radio" name="payment" value="paypal">
+              <span><i class="fa-brands fa-paypal"></i> PayPal</span>
+            </label>
+            <label class="pay-method">
+              <input type="radio" name="payment" value="bank">
+              <span><i class="fa-solid fa-building-columns"></i> Bank Transfer</span>
+            </label>
+          </div>
+
+          <!-- Card fields (shown when card is selected) -->
+          <div class="card-fields" id="card-fields">
+            <div class="field"><label>Name on Card <span class="req">*</span></label><input type="text" id="co-card-name" placeholder="Marko Kovač"><span class="err">Required</span></div>
+            <div class="field"><label>Card Number <span class="req">*</span></label>
+              <div class="card-input-wrap">
+                <input type="text" id="co-card-num" placeholder="1234 5678 9012 3456" maxlength="19">
+                <i class="fa-brands fa-cc-visa card-icon" id="card-brand-icon"></i>
+              </div>
+              <span class="err">Valid card number required</span>
+            </div>
+            <div class="form-row-2">
+              <div class="field"><label>Expiry <span class="req">*</span></label><input type="text" id="co-expiry" placeholder="MM / YY" maxlength="7"><span class="err">Required</span></div>
+              <div class="field"><label>CVV <span class="req">*</span></label><input type="text" id="co-cvv" placeholder="123" maxlength="4"><span class="err">Required</span></div>
+            </div>
+          </div>
+
+          <!-- PayPal note -->
+          <div class="pay-note" id="paypal-note" style="display:none">
+            <i class="fa-brands fa-paypal" style="color:#003087;margin-right:var(--sp-2)"></i>
+            You'll be redirected to PayPal to complete your payment securely.
+          </div>
+
+          <!-- Bank transfer note -->
+          <div class="pay-note" id="bank-note" style="display:none">
+            <i class="fa-solid fa-building-columns" style="margin-right:var(--sp-2)"></i>
+            After placing your order, you'll receive bank transfer details by email. Order ships once payment is confirmed.
+          </div>
+
+          <label class="checkbox-label" style="margin-bottom:var(--sp-4)">
+            <input type="checkbox" id="co-terms">
+            I agree to the <a href="#" style="color:var(--c-accent);text-decoration:underline">Terms &amp; Conditions</a> and <a href="#" style="color:var(--c-accent);text-decoration:underline">Privacy Policy</a>
+          </label>
+
+          <div class="checkout-btns">
+            <button class="btn btn-ghost" id="step3-back"><i class="fa-solid fa-arrow-left"></i> Back</button>
+            <button class="btn btn-primary btn-lg" id="place-order">
+              <i class="fa-solid fa-lock"></i> Place Order
+            </button>
+          </div>
+          <p class="co-secure"><i class="fa-solid fa-shield-halved"></i> 256-bit SSL encrypted · Your data is safe</p>
+        </div>
+
+        <!-- ORDER SUCCESS -->
+        <div class="order-success" id="order-success" style="display:none">
+          <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <h2>Order Confirmed! 🎉</h2>
+          <p style="color:var(--c-text-muted);max-width:420px;margin:var(--sp-4) auto">Thank you for your order. We've sent a confirmation to your email and will start production right away.</p>
+          <div class="order-num-box">Order #<span id="order-number">PEP-2025-001</span></div>
+          <div style="display:flex;gap:var(--sp-4);justify-content:center;margin-top:var(--sp-8);flex-wrap:wrap">
+            <a href="account.html" class="btn btn-outline">View My Orders</a>
+            <a href="shop.html" class="btn btn-primary">Continue Shopping</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: ORDER SUMMARY -->
+      <aside class="order-summary-box" id="co-summary">
+        <h3>Order Summary</h3>
+        <div id="co-items">
+          <!-- JS populates cart items here -->
+        </div>
+        <div style="margin-top:var(--sp-4)">
+          <div class="summary-line"><span>Subtotal</span><span id="co-subtotal">€0.00</span></div>
+          <div class="summary-line"><span>Shipping</span><span id="co-shipping">€4.99</span></div>
+          <div class="summary-total"><span>Total</span><span id="co-total">€0.00</span></div>
+        </div>
+        <div class="summary-trust">
+          <div><i class="fa-solid fa-lock"></i> SSL secure checkout</div>
+          <div><i class="fa-solid fa-rotate-left"></i> 30-day returns</div>
+          <div><i class="fa-solid fa-medal"></i> Premium quality guarantee</div>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container"><div class="footer-top">
+    <div class="footer-col"><span class="footer-logo">Pepika</span><p class="footer-tagline">Premium personalised products — crafted in Croatia.</p></div>
+    <div class="footer-col"><h4>Company</h4><nav><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="#">Shipping</a><a href="#">Returns</a></nav></div>
+    <div class="footer-col"><h4>Contact</h4><address><p><i class="fa-solid fa-envelope"></i>lorena.tijan@gmail.com</p><p><i class="fa-solid fa-phone"></i>+385 91 469 2219</p></address></div>
+  </div></div>
+  <div class="footer-bottom"><div class="container footer-bottom-inner">
+    <p class="footer-copy">&copy; <span class="footer-year">2025</span> Pepika.</p>
+    <div class="footer-pay"><i class="fa-brands fa-cc-visa"></i><i class="fa-brands fa-cc-mastercard"></i><i class="fa-brands fa-cc-paypal"></i></div>
+  </div></div>
+</footer>
+
+<script src="../js/site.js"></script>
+<script src="../js/checkout.js"></script>
+</body>
+</html>

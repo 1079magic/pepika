@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Door Name Plates — Pepika</title>
+  <meta name="description" content="Premium laser-engraved door name plates for home and office.">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/shop.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="promo-bar">🎁 Free shipping over <strong>€100</strong> &nbsp;|&nbsp; Code <strong>PEPIKA10</strong> for 10% off &nbsp;<a href="shop.html">Shop now →</a></div>
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="site-logo">Pepika</a>
+    <nav class="site-nav" id="site-nav">
+      <div class="nav-item"><a href="../index.html" class="nav-link">Home</a></div>
+      <div class="nav-item"><a href="shop.html" class="nav-link active">Shop <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="nav-dropdown">
+          <a href="shop.html" class="dropdown-all"><i class="fa-solid fa-grid-2"></i> All Products</a><hr>
+          <a href="category.html"><i class="fa-regular fa-square-check"></i> Door Name Plates</a>
+          <a href="category.html"><i class="fa-solid fa-house"></i> House Numbers</a>
+          <a href="category.html"><i class="fa-solid fa-couch"></i> Home Décor</a>
+          <a href="category.html"><i class="fa-solid fa-gift"></i> Personalised Gifts</a>
+          <a href="category.html"><i class="fa-solid fa-lightbulb"></i> LED Signs</a>
+          <a href="category.html"><i class="fa-solid fa-gem"></i> Jewellery</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+    </nav>
+    <div class="header-utils">
+      <button class="util-btn" id="search-toggle"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <a href="account.html#wishlist" class="util-btn"><i class="fa-regular fa-heart"></i><span class="util-badge" id="wish-badge">0</span></a>
+      <a href="account.html" class="util-btn"><i class="fa-regular fa-circle-user"></i></a>
+      <button class="util-btn" id="cart-toggle"><i class="fa-solid fa-bag-shopping"></i><span class="util-badge" id="cart-badge">0</span></button>
+      <button class="hamburger" id="hamburger" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="search-bar container" id="search-bar">
+    <i class="fa-solid fa-magnifying-glass" style="color:var(--c-text-muted)"></i>
+    <input type="search" id="search-input" placeholder="Search products…">
+    <button class="search-close" id="search-close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+</header>
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+  <div class="drawer-head"><h2>Your Cart</h2><button class="drawer-close" id="cart-close"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="drawer-body" id="cart-body"><div class="cart-empty" id="cart-empty"><i class="fa-solid fa-bag-shopping"></i><p>Your cart is empty.</p><a href="shop.html" class="btn btn-outline btn-sm" style="margin-top:1rem">Browse Products</a></div></div>
+  <div class="drawer-foot" id="cart-foot" style="display:none">
+    <div class="free-ship-bar"><p id="free-ship-msg">Add <strong>€100.00</strong> more for free shipping!</p><div class="free-ship-track"><div class="free-ship-fill" id="free-ship-fill" style="width:0%"></div></div></div>
+    <div class="cart-subtotal"><span>Subtotal (<span id="cart-item-count">0</span> items)</span><span id="cart-subtotal-val">€0.00</span></div>
+    <div class="cart-total"><span>Total</span><span id="cart-total-val">€0.00</span></div>
+    <a href="checkout.html" class="btn btn-primary btn-full">Proceed to Checkout</a>
+    <button class="btn btn-ghost btn-full" id="cart-keep-shopping" style="margin-top:.5rem">Continue Shopping</button>
+  </div>
+</aside>
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toast-msg">Done!</span></div>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb-bar"><div class="container"><ol class="breadcrumb">
+  <li><a href="../index.html">Home</a></li>
+  <li><i class="fa-solid fa-chevron-right"></i></li>
+  <li><a href="shop.html">Products</a></li>
+  <li><i class="fa-solid fa-chevron-right"></i></li>
+  <li>Door Name Plates</li>
+</ol></div></nav>
+
+<!-- CATEGORY HERO -->
+<!-- Update h1, p, and img src (slike/cat-door-signs.jpg) for each category -->
+<div class="cat-page-hero">
+  <div class="container cat-page-hero-inner">
+    <div>
+      <h1>Door Name Plates</h1>
+      <p>Premium laser-engraved aluminium and acrylic name plates for home, office &amp; commercial use. Fully customisable — your name, your style.</p>
+    </div>
+    <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plates-for-doors.jpg" alt="Door Name Plates">
+  </div>
+</div>
+
+<!-- SUBCATEGORY PILLS -->
+<div class="subcat-bar">
+  <div class="container subcat-scroll">
+    <a href="#" class="subcat-pill active">All (12)</a>
+    <a href="#" class="subcat-pill">Aluminium (5)</a>
+    <a href="#" class="subcat-pill">Acrylic (4)</a>
+    <a href="#" class="subcat-pill">Wood (2)</a>
+    <a href="#" class="subcat-pill">LED (1)</a>
+  </div>
+</div>
+
+<!-- SHOP LAYOUT -->
+<section class="section-sm">
+  <div class="container shop-layout">
+
+    <aside class="shop-sidebar" id="shop-sidebar">
+      <div class="sidebar-close-btn">
+        <h3>Filters</h3>
+        <button class="btn btn-ghost btn-sm" id="sidebar-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div style="display:flex;justify-content:flex-end;margin-bottom:var(--sp-4)">
+        <button class="btn btn-ghost btn-sm" id="clear-filters-2">Clear all</button>
+      </div>
+      <div class="filter-group">
+        <button class="filter-toggle" aria-expanded="true">Price Range <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="filter-body">
+          <div class="price-range-wrap">
+            <input type="range" id="price-min" min="0" max="200" value="0" class="range-slider">
+            <input type="range" id="price-max" min="0" max="200" value="200" class="range-slider">
+            <div class="price-display"><span>€<span id="price-min-val">0</span></span><span>€<span id="price-max-val">200</span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="filter-group">
+        <button class="filter-toggle" aria-expanded="true">Material <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="filter-body">
+          <label class="filter-check"><input type="checkbox" value="aluminium"> Aluminium</label>
+          <label class="filter-check"><input type="checkbox" value="acrylic"> Acrylic</label>
+          <label class="filter-check"><input type="checkbox" value="wood"> Wood</label>
+        </div>
+      </div>
+      <div class="filter-group">
+        <button class="filter-toggle" aria-expanded="true">Finish <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="filter-body">
+          <label class="filter-check"><input type="checkbox" value="brushed-silver"> Brushed Silver</label>
+          <label class="filter-check"><input type="checkbox" value="matte-black"> Matte Black</label>
+          <label class="filter-check"><input type="checkbox" value="gold"> Gold</label>
+          <label class="filter-check"><input type="checkbox" value="white"> White</label>
+        </div>
+      </div>
+    </aside>
+
+    <main class="shop-main">
+      <div class="shop-toolbar">
+        <select class="sort-select" id="sort-select">
+          <option>Most Popular</option><option>Newest</option>
+          <option>Price: Low–High</option><option>Price: High–Low</option>
+        </select>
+        <div class="view-toggle">
+          <button class="view-btn active" data-view="grid"><i class="fa-solid fa-grid-2"></i></button>
+          <button class="view-btn" data-view="list"><i class="fa-solid fa-list"></i></button>
+        </div>
+        <button class="btn btn-outline btn-sm mobile-filter-btn" id="mobile-filter-btn">
+          <i class="fa-solid fa-sliders"></i> Filters
+        </button>
+      </div>
+
+      <div class="active-filters" id="active-filters"></div>
+
+      <div class="shop-grid" id="products-grid">
+        <article class="p-card">
+          <div class="p-card-img">
+            <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\standard-name-plate.jpg" alt="Standard Name Plate" loading="lazy">
+            <span class="p-card-badge badge badge-accent">Bestseller</span>
+            <button class="p-card-wish" data-wish-id="cat-001" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+            <div class="p-card-actions">
+              <a href="product.html" class="btn btn-dark btn-sm" style="flex:1">View Product</a>
+              <button class="btn btn-primary btn-sm" onclick="quickAdd('cat-001','Standard Name Plate',49.99)"><i class="fa-solid fa-bag-shopping"></i></button>
+            </div>
+          </div>
+          <div class="p-card-body">
+            <div class="p-card-cat">Standard · Aluminium</div>
+            <div class="p-card-name"><a href="product.html">Standard Name Plate</a></div>
+            <div class="p-card-stars">★★★★★</div>
+            <div class="p-card-price">€49.99</div>
+          </div>
+        </article>
+        <article class="p-card">
+          <div class="p-card-img">
+            <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\premium-name-plate.jpg" alt="Premium Name Plate" loading="lazy">
+            <button class="p-card-wish" data-wish-id="cat-002" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+            <div class="p-card-actions">
+              <a href="product.html" class="btn btn-dark btn-sm" style="flex:1">View Product</a>
+              <button class="btn btn-primary btn-sm" onclick="quickAdd('cat-002','Premium Name Plate',69.99)"><i class="fa-solid fa-bag-shopping"></i></button>
+            </div>
+          </div>
+          <div class="p-card-body">
+            <div class="p-card-cat">Premium · Aluminium</div>
+            <div class="p-card-name"><a href="product.html">Premium Name Plate</a></div>
+            <div class="p-card-stars">★★★★★</div>
+            <div class="p-card-price">€69.99</div>
+          </div>
+        </article>
+        <article class="p-card">
+          <div class="p-card-img">
+            <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\acrylic-name-plate.jpg" alt="Acrylic Plate" loading="lazy">
+            <span class="p-card-badge badge badge-new">New</span>
+            <button class="p-card-wish" data-wish-id="cat-003" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+            <div class="p-card-actions">
+              <a href="product.html" class="btn btn-dark btn-sm" style="flex:1">View Product</a>
+              <button class="btn btn-primary btn-sm" onclick="quickAdd('cat-003','Acrylic Name Plate',54.99)"><i class="fa-solid fa-bag-shopping"></i></button>
+            </div>
+          </div>
+          <div class="p-card-body">
+            <div class="p-card-cat">Acrylic</div>
+            <div class="p-card-name"><a href="product.html">Acrylic Name Plate</a></div>
+            <div class="p-card-stars">★★★★☆</div>
+            <div class="p-card-price">€54.99</div>
+          </div>
+        </article>
+      </div>
+
+      <nav class="pagination">
+        <button class="page-btn"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+      </nav>
+    </main>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container"><div class="footer-top">
+    <div class="footer-col"><span class="footer-logo">Pepika</span><p class="footer-tagline">Premium personalised products — crafted in Croatia.</p><div class="footer-social"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a></div></div>
+    <div class="footer-col"><h4>Shop</h4><nav><a href="shop.html">All Products</a><a href="category.html">Door Signs</a><a href="category.html">House Numbers</a></nav></div>
+    <div class="footer-col"><h4>Company</h4><nav><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="#">Shipping</a></nav></div>
+    <div class="footer-col"><h4>Contact</h4><address><p><i class="fa-solid fa-envelope"></i>info@pepika.com</p><p><i class="fa-solid fa-phone"></i>+385 99 000 0000</p></address></div>
+    <div class="footer-col"><h4>Newsletter</h4><form class="newsletter-form" id="footer-newsletter" novalidate><input type="email" placeholder="your@email.com"><button type="submit" class="btn btn-primary btn-sm">Subscribe</button></form></div>
+  </div></div>
+  <div class="footer-bottom"><div class="container footer-bottom-inner">
+    <p class="footer-copy">&copy; <span class="footer-year">2025</span> Pepika.</p>
+    <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    <div class="footer-pay"><i class="fa-brands fa-cc-visa"></i><i class="fa-brands fa-cc-mastercard"></i><i class="fa-brands fa-cc-paypal"></i></div>
+  </div></div>
+</footer>
+
+<script src="../js/site.js"></script>
+<script src="../js/shop.js"></script>
+</body>
+</html>

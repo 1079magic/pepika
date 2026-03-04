@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Name Plate for Door — Pepika</title>
+  <meta name="description" content="Premium laser-engraved aluminium name plate. Fully customisable — choose your finish, size and text.">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/product.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="promo-bar">🎁 Free shipping over <strong>€100</strong> &nbsp;|&nbsp; Code <strong>PEPIKA10</strong> for 10% off &nbsp;<a href="shop.html">Shop now →</a></div>
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="site-logo">Pepika</a>
+    <nav class="site-nav" id="site-nav">
+      <div class="nav-item"><a href="../index.html" class="nav-link">Home</a></div>
+      <div class="nav-item"><a href="shop.html" class="nav-link active">Shop <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="nav-dropdown">
+          <a href="shop.html" class="dropdown-all"><i class="fa-solid fa-grid-2"></i> All Products</a><hr>
+          <a href="category.html"><i class="fa-regular fa-square-check"></i> Door Name Plates</a>
+          <a href="category.html"><i class="fa-solid fa-house"></i> House Numbers</a>
+          <a href="category.html"><i class="fa-solid fa-gift"></i> Personalised Gifts</a>
+          <a href="category.html"><i class="fa-solid fa-lightbulb"></i> LED Signs</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+    </nav>
+    <div class="header-utils">
+      <button class="util-btn" id="search-toggle"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <a href="account.html#wishlist" class="util-btn"><i class="fa-regular fa-heart"></i><span class="util-badge" id="wish-badge">0</span></a>
+      <a href="account.html" class="util-btn"><i class="fa-regular fa-circle-user"></i></a>
+      <button class="util-btn" id="cart-toggle"><i class="fa-solid fa-bag-shopping"></i><span class="util-badge" id="cart-badge">0</span></button>
+      <button class="hamburger" id="hamburger" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="search-bar container" id="search-bar">
+    <i class="fa-solid fa-magnifying-glass" style="color:var(--c-text-muted)"></i>
+    <input type="search" id="search-input" placeholder="Search products…">
+    <button class="search-close" id="search-close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+</header>
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+  <div class="drawer-head"><h2>Your Cart</h2><button class="drawer-close" id="cart-close"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="drawer-body" id="cart-body"><div class="cart-empty" id="cart-empty"><i class="fa-solid fa-bag-shopping"></i><p>Your cart is empty.</p></div></div>
+  <div class="drawer-foot" id="cart-foot" style="display:none">
+    <div class="free-ship-bar"><p id="free-ship-msg">Add <strong>€100.00</strong> more for free shipping!</p><div class="free-ship-track"><div class="free-ship-fill" id="free-ship-fill" style="width:0%"></div></div></div>
+    <div class="cart-subtotal"><span>Subtotal (<span id="cart-item-count">0</span> items)</span><span id="cart-subtotal-val">€0.00</span></div>
+    <div class="cart-total"><span>Total</span><span id="cart-total-val">€0.00</span></div>
+    <a href="checkout.html" class="btn btn-primary btn-full">Proceed to Checkout</a>
+    <button class="btn btn-ghost btn-full" id="cart-keep-shopping" style="margin-top:.5rem">Continue Shopping</button>
+  </div>
+</aside>
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toast-msg">Done!</span></div>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb-bar"><div class="container"><ol class="breadcrumb">
+  <li><a href="../index.html">Home</a></li>
+  <li><i class="fa-solid fa-chevron-right"></i></li>
+  <li><a href="shop.html">Products</a></li>
+  <li><i class="fa-solid fa-chevron-right"></i></li>
+  <li><a href="category.html">Door Name Plates</a></li>
+  <li><i class="fa-solid fa-chevron-right"></i></li>
+  <li>Name Plate for Door</li>
+</ol></div></nav>
+
+<!-- ═══ PRODUCT DETAIL ═══ -->
+<div class="container">
+  <div class="product-layout">
+
+    <!-- GALLERY -->
+    <!-- Replace placeholder src values with real product images from proizvodi/ folder -->
+    <div class="gallery">
+      <div class="gallery-main" id="gallery-main">
+        <span class="gallery-badge badge badge-accent">Bestseller</span>
+        <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plates-for-doors.jpg" alt="Name Plate for Door — main view" id="main-img">
+        <button class="gallery-arrow prev" id="gallery-prev" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="gallery-arrow next" id="gallery-next" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="gallery-thumbs">
+        <!-- Add/remove thumbs to match your product image count -->
+        <div class="thumb active" data-src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plates-for-doors.jpg"><img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plates-for-doors.jpg" alt="View 1"></div>
+        <div class="thumb" data-src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plate-for-door-2.jpg"><img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plate-for-door-2.jpg" alt="View 2"></div>
+        <div class="thumb" data-src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plate-for-door-3.jpg"><img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plate-for-door-3.jpg" alt="View 3"></div>
+        <div class="thumb" data-src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plate-for-door-4.jpg"><img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plate-for-door-4.jpg" alt="View 4"></div>
+        <div class="thumb" data-src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plate-for-door-5.jpg"><img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plate-for-door-5.jpg" alt="View 5"></div>
+      </div>
+    </div>
+
+    <!-- PRODUCT INFO -->
+    <div class="product-info">
+
+      <div class="product-meta">
+        <span class="product-sku">SKU: PEP-NP-001</span>
+        <span class="product-stock">
+          <i class="fa-solid fa-circle-check"></i> In stock — ships in 1–2 days
+        </span>
+      </div>
+
+      <h1 class="product-title">Name Plate for Door</h1>
+
+      <div class="product-rating">
+        <span class="rating-stars">★★★★★</span>
+        <a href="#reviews" class="rating-count">4.9 (47 reviews)</a>
+      </div>
+
+      <div class="product-price-row">
+        <span class="product-price" id="product-price">€49.99</span>
+        <!-- Uncomment if product has a sale: <span class="product-price-orig">€64.99</span> -->
+        <!-- <span class="product-discount">Save 23%</span> -->
+      </div>
+
+      <ul class="product-features">
+        <li><i class="fa-solid fa-check"></i> Precision laser engraving on premium aluminium</li>
+        <li><i class="fa-solid fa-check"></i> Choose your finish: brushed silver, matte black, gold, white</li>
+        <li><i class="fa-solid fa-check"></i> Available in 3 sizes — fits any door</li>
+        <li><i class="fa-solid fa-check"></i> Weather-resistant for indoor and outdoor use</li>
+        <li><i class="fa-solid fa-check"></i> Mounting hardware included</li>
+      </ul>
+
+      <!-- COLOUR VARIANT -->
+      <div class="variant-group">
+        <div class="variant-label">Finish: <span id="selected-colour">Brushed Silver</span></div>
+        <div class="color-swatches">
+          <!-- Update data-name and style background for your colour options -->
+          <button class="color-swatch active" title="Brushed Silver" data-price="0" style="background:linear-gradient(135deg,#b8b8b8,#e0e0e0)" data-name="Brushed Silver" aria-pressed="true"></button>
+          <button class="color-swatch" title="Matte Black" data-price="0" style="background:#1a1a1a" data-name="Matte Black" aria-pressed="false"></button>
+          <button class="color-swatch" title="Gold" data-price="5" style="background:linear-gradient(135deg,#c9a84c,#e8d08a)" data-name="Gold" aria-pressed="false"></button>
+          <button class="color-swatch" title="White" data-price="0" style="background:#f5f5f5;border:1px solid #ccc" data-name="White" aria-pressed="false"></button>
+        </div>
+      </div>
+
+      <!-- SIZE VARIANT -->
+      <div class="variant-group">
+        <div class="variant-label">Size:</div>
+        <select class="size-select" id="size-select" aria-label="Select size">
+          <option value="" disabled selected>— Select a size —</option>
+          <!-- Update sizes and data-price-modifier values to match your products -->
+          <option value="small" data-modifier="0">Small  (150 × 50 mm) — €49.99</option>
+          <option value="medium" data-modifier="10">Medium (200 × 60 mm) — €59.99</option>
+          <option value="large" data-modifier="20">Large  (250 × 70 mm) — €69.99</option>
+        </select>
+      </div>
+
+      <!-- ADD TO CART -->
+      <div class="add-to-cart-row">
+        <div class="qty-ctrl">
+          <button class="qty-btn" id="qty-dec" aria-label="Decrease quantity">−</button>
+          <span class="qty-num" id="qty-num" aria-live="polite">1</span>
+          <button class="qty-btn" id="qty-inc" aria-label="Increase quantity">+</button>
+        </div>
+        <!-- Disabled until variants are selected -->
+        <button class="btn btn-add-cart" id="btn-add-cart" disabled>
+          <i class="fa-solid fa-bag-shopping"></i> Select options to add to cart
+        </button>
+        <button class="btn-wishlist" id="btn-wishlist" data-wish-id="prod-001" aria-label="Save to wishlist" aria-pressed="false">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+      </div>
+
+      <!-- TRUST BADGES -->
+      <div class="trust-row">
+        <div class="trust-item"><i class="fa-solid fa-truck-fast"></i><span>Free shipping over €100</span></div>
+        <div class="trust-item"><i class="fa-solid fa-rotate-left"></i><span>30-day returns</span></div>
+        <div class="trust-item"><i class="fa-solid fa-shield-halved"></i><span>Secure SSL checkout</span></div>
+      </div>
+
+      <!-- SHARE -->
+      <div class="share-row">
+        <span>Share:</span>
+        <div class="share-btns">
+          <a href="#" class="share-btn" aria-label="Share on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="share-btn" aria-label="Share on Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <button class="share-btn" id="copy-link-btn" aria-label="Copy link"><i class="fa-solid fa-link"></i></button>
+        </div>
+      </div>
+
+    </div><!-- /.product-info -->
+  </div><!-- /.product-layout -->
+
+  <!-- ═══ TABS ═══ -->
+  <div class="product-tabs" id="product-tabs">
+    <div class="tab-nav">
+      <button class="tab-btn active" data-tab="description">Description</button>
+      <button class="tab-btn" data-tab="info">Additional Info</button>
+      <button class="tab-btn" data-tab="reviews" id="reviews-tab-btn">Reviews (47)</button>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="tab-panel active desc-body" id="tab-description">
+      <!-- Edit the description to match your product -->
+      <h3>About This Product</h3>
+      <p>The Pepika Door Name Plate is precision-crafted using professional laser engraving on premium aluminium plate. Whether for a home, apartment block, office or business, it delivers a clean, modern look that lasts for years.</p>
+      <p>Each plate is made to order — we engrave your chosen name, family name, number or custom text with sharp, deep markings that won't fade or scratch off.</p>
+      <h3 style="margin-top:var(--sp-6)">What's Included</h3>
+      <ul>
+        <li>1 × Laser-engraved name plate (your size)</li>
+        <li>Mounting screws &amp; wall anchors</li>
+        <li>Adhesive backing strip (optional fitting)</li>
+        <li>Protective packaging</li>
+      </ul>
+      <h3 style="margin-top:var(--sp-6)">Personalisation</h3>
+      <p>When ordering, add your desired text in the order notes at checkout. We support up to 25 characters per line, 2 lines maximum. All common Latin characters, numbers and basic symbols are supported.</p>
+    </div>
+
+    <!-- ADDITIONAL INFO -->
+    <div class="tab-panel" id="tab-info">
+      <!-- Update values to match your real product specs -->
+      <table class="info-table">
+        <tr><td>Material</td><td>Anodised aluminium</td></tr>
+        <tr><td>Small size</td><td>150 × 50 mm, 1.5 mm thickness</td></tr>
+        <tr><td>Medium size</td><td>200 × 60 mm, 1.5 mm thickness</td></tr>
+        <tr><td>Large size</td><td>250 × 70 mm, 2 mm thickness</td></tr>
+        <tr><td>Finishes</td><td>Brushed Silver, Matte Black, Gold, White</td></tr>
+        <tr><td>Engraving</td><td>Fibre laser, 0.1 mm precision</td></tr>
+        <tr><td>Outdoor use</td><td>Yes — UV &amp; weather resistant</td></tr>
+        <tr><td>Mounting</td><td>Screw or adhesive (both included)</td></tr>
+        <tr><td>Production time</td><td>1–2 business days</td></tr>
+        <tr><td>Shipping</td><td>3–5 business days (EU)</td></tr>
+        <tr><td>Made in</td><td>Zagreb, Croatia</td></tr>
+      </table>
+    </div>
+
+    <!-- REVIEWS -->
+    <div class="tab-panel" id="tab-reviews" id="reviews">
+      <div class="reviews-layout">
+
+        <!-- SUMMARY -->
+        <div class="review-summary">
+          <div class="review-big-score">4.9</div>
+          <div class="review-big-stars">★★★★★</div>
+          <div class="review-total">Based on 47 reviews</div>
+          <div class="rating-bars">
+            <div class="rating-bar-row"><span>5</span><div class="rbar-track"><div class="rbar-fill" style="width:89%"></div></div><span>42</span></div>
+            <div class="rating-bar-row"><span>4</span><div class="rbar-track"><div class="rbar-fill" style="width:9%"></div></div><span>4</span></div>
+            <div class="rating-bar-row"><span>3</span><div class="rbar-track"><div class="rbar-fill" style="width:2%"></div></div><span>1</span></div>
+            <div class="rating-bar-row"><span>2</span><div class="rbar-track"><div class="rbar-fill" style="width:0%"></div></div><span>0</span></div>
+            <div class="rating-bar-row"><span>1</span><div class="rbar-track"><div class="rbar-fill" style="width:0%"></div></div><span>0</span></div>
+          </div>
+        </div>
+
+        <!-- REVIEWS + FORM -->
+        <div>
+          <div class="review-list" id="review-list">
+            <!-- Duplicate and edit .review-card blocks for more reviews -->
+            <div class="review-card">
+              <div class="review-card-head">
+                <div class="reviewer-info"><strong>Marko K.</strong><span>Zagreb · 15 Feb 2025 · Verified Purchase</span></div>
+                <div class="review-card-stars">★★★★★</div>
+              </div>
+              <div class="review-card-title">Exactly what I was looking for</div>
+              <div class="review-card-text">The quality is incredible — the laser engraving is so crisp and clean. Arrived beautifully packaged within 4 days. Would highly recommend to anyone needing professional-looking door signage.</div>
+              <div class="review-helpful">Was this helpful? <button>Yes (12)</button></div>
+            </div>
+            <div class="review-card">
+              <div class="review-card-head">
+                <div class="reviewer-info"><strong>Ana P.</strong><span>Split · 10 Jan 2025 · Verified Purchase</span></div>
+                <div class="review-card-stars">★★★★★</div>
+              </div>
+              <div class="review-card-title">Perfect for our apartment block</div>
+              <div class="review-card-text">I ordered plates for all 8 apartments. The service was excellent — they responded to my custom inquiry within hours, and the final result looks completely professional.</div>
+              <div class="review-helpful">Was this helpful? <button>Yes (8)</button></div>
+            </div>
+          </div>
+
+          <!-- WRITE A REVIEW -->
+          <div class="review-form-wrap" id="review-form-wrap">
+            <h3>Write a Review</h3>
+            <div class="star-picker" id="star-picker" aria-label="Rate this product">
+              <span class="star-pick" data-val="1">★</span>
+              <span class="star-pick" data-val="2">★</span>
+              <span class="star-pick" data-val="3">★</span>
+              <span class="star-pick" data-val="4">★</span>
+              <span class="star-pick" data-val="5">★</span>
+            </div>
+            <form class="review-form" id="review-form" novalidate>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4)">
+                <div class="field"><label>Your Name <span class="req">*</span></label><input type="text" id="rv-name" placeholder="Jane D."><span class="err">Name required</span></div>
+                <div class="field"><label>Review Title <span class="req">*</span></label><input type="text" id="rv-title" placeholder="Short summary…"><span class="err">Title required</span></div>
+              </div>
+              <div class="field"><label>Your Review <span class="req">*</span></label><textarea id="rv-body" rows="4" placeholder="Tell others about your experience…"></textarea><span class="err">Review required</span></div>
+              <button type="submit" class="btn btn-primary">Submit Review</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.product-tabs -->
+
+  <!-- ═══ RELATED PRODUCTS ═══ -->
+  <div class="related-section">
+    <div class="section-header" style="text-align:left">
+      <h2>You Might Also Like</h2>
+      <span class="accent-line" style="margin-left:0"></span>
+    </div>
+    <div class="related-grid" style="margin-top:var(--sp-8)">
+      <!-- Repeat and edit for your actual related products -->
+      <article class="p-card">
+        <div class="p-card-img"><img src="https://placehold.co/400x533/ede4d8/9a4f25?text=Related+1" alt="Related 1" loading="lazy"><div class="p-card-actions"><a href="product.html" class="btn btn-dark btn-sm" style="flex:1">View</a><button class="btn btn-primary btn-sm" onclick="quickAdd('rel-1','House Number Plate',39.99)"><i class="fa-solid fa-bag-shopping"></i></button></div></div>
+        <div class="p-card-body"><div class="p-card-cat">House Numbers</div><div class="p-card-name"><a href="product.html">House Number Plate</a></div><div class="p-card-price">€39.99</div></div>
+      </article>
+      <article class="p-card">
+        <div class="p-card-img"><img src="https://placehold.co/400x533/e8f0f4/3a5a6a?text=Related+2" alt="Related 2" loading="lazy"><div class="p-card-actions"><a href="product.html" class="btn btn-dark btn-sm" style="flex:1">View</a><button class="btn btn-primary btn-sm" onclick="quickAdd('rel-2','Premium Name Plate',69.99)"><i class="fa-solid fa-bag-shopping"></i></button></div></div>
+        <div class="p-card-body"><div class="p-card-cat">Door Signs</div><div class="p-card-name"><a href="product.html">Premium Name Plate</a></div><div class="p-card-price">€69.99</div></div>
+      </article>
+      <article class="p-card">
+        <div class="p-card-img"><img src="https://placehold.co/400x533/f4ede8/7a4030?text=Related+3" alt="Related 3" loading="lazy"><div class="p-card-actions"><a href="product.html" class="btn btn-dark btn-sm" style="flex:1">View</a><button class="btn btn-primary btn-sm" onclick="quickAdd('rel-3','Acrylic Name Plate',54.99)"><i class="fa-solid fa-bag-shopping"></i></button></div></div>
+        <div class="p-card-body"><div class="p-card-cat">Acrylic</div><div class="p-card-name"><a href="product.html">Acrylic Name Plate</a></div><div class="p-card-price">€54.99</div></div>
+      </article>
+      <article class="p-card">
+        <div class="p-card-img"><img src="https://placehold.co/400x533/ede8f4/5a3a6a?text=Related+4" alt="Related 4" loading="lazy"><div class="p-card-actions"><a href="product.html" class="btn btn-dark btn-sm" style="flex:1">View</a><button class="btn btn-primary btn-sm" onclick="quickAdd('rel-4','LED Name Sign',89.99)"><i class="fa-solid fa-bag-shopping"></i></button></div></div>
+        <div class="p-card-body"><div class="p-card-cat">LED Signs</div><div class="p-card-name"><a href="product.html">LED Name Sign</a></div><div class="p-card-price">€89.99</div></div>
+      </article>
+    </div>
+  </div>
+
+</div><!-- /.container -->
+
+<!-- STICKY MOBILE ADD-TO-CART -->
+<div class="sticky-atc" id="sticky-atc">
+  <div class="sticky-atc-info">
+    <strong>Name Plate for Door</strong>
+    <span id="sticky-price">€49.99</span>
+  </div>
+  <button class="btn btn-primary" id="sticky-atc-btn" style="flex:1">
+    <i class="fa-solid fa-bag-shopping"></i> Add to Cart
+  </button>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container"><div class="footer-top">
+    <div class="footer-col"><span class="footer-logo">Pepika</span><p class="footer-tagline">Premium personalised products — crafted in Croatia.</p><div class="footer-social"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a></div></div>
+    <div class="footer-col"><h4>Shop</h4><nav><a href="shop.html">All Products</a><a href="category.html">Door Signs</a><a href="category.html">House Numbers</a></nav></div>
+    <div class="footer-col"><h4>Company</h4><nav><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="#">Shipping</a></nav></div>
+    <div class="footer-col"><h4>Contact</h4><address><p><i class="fa-solid fa-envelope"></i>info@pepika.com</p><p><i class="fa-solid fa-phone"></i>+385 99 000 0000</p></address></div>
+    <div class="footer-col"><h4>Newsletter</h4><form class="newsletter-form" id="footer-newsletter" novalidate><input type="email" placeholder="your@email.com"><button type="submit" class="btn btn-primary btn-sm">Subscribe</button></form></div>
+  </div></div>
+  <div class="footer-bottom"><div class="container footer-bottom-inner">
+    <p class="footer-copy">&copy; <span class="footer-year">2025</span> Pepika.</p>
+    <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    <div class="footer-pay"><i class="fa-brands fa-cc-visa"></i><i class="fa-brands fa-cc-mastercard"></i><i class="fa-brands fa-cc-paypal"></i></div>
+  </div></div>
+</footer>
+
+<script src="../js/site.js"></script>
+<script src="../js/product.js"></script>
+</body>
+</html>

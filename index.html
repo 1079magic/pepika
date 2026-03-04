@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pepika — Premium Personalised Products</title>
+  <meta name="description" content="Premium laser-engraved name plates, house numbers & personalised gifts. Made to order in Croatia.">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- PROMO BAR -->
+<div class="promo-bar">
+  🎁 Free shipping over <strong>€100</strong> &nbsp;|&nbsp;
+  Code <strong>PEPIKA10</strong> for 10% off &nbsp;
+  <a href="pages/shop.html">Shop now →</a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="site-logo">Pepika</a>
+    <nav class="site-nav" id="site-nav">
+      <div class="nav-item"><a href="index.html" class="nav-link active">Home</a></div>
+      <div class="nav-item">
+        <a href="pages/shop.html" class="nav-link">Shop <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="nav-dropdown">
+          <a href="pages/shop.html" class="dropdown-all"><i class="fa-solid fa-grid-2"></i> All Products</a>
+          <hr>
+          <a href="pages/category.html"><i class="fa-regular fa-square-check"></i> Door Name Plates</a>
+          <a href="pages/category.html"><i class="fa-solid fa-house"></i> House Numbers</a>
+          <a href="pages/category.html"><i class="fa-solid fa-couch"></i> Home Décor</a>
+          <a href="pages/category.html"><i class="fa-solid fa-gift"></i> Personalised Gifts</a>
+          <a href="pages/category.html"><i class="fa-solid fa-lightbulb"></i> LED Signs</a>
+          <a href="pages/category.html"><i class="fa-solid fa-gem"></i> Jewellery</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="pages/about.html" class="nav-link">About Us</a></div>
+      <div class="nav-item"><a href="pages/contact.html" class="nav-link">Contact</a></div>
+    </nav>
+    <div class="header-utils">
+      <button class="util-btn" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <a href="pages/account.html#wishlist" class="util-btn" aria-label="Wishlist">
+        <i class="fa-regular fa-heart"></i><span class="util-badge" id="wish-badge">0</span>
+      </a>
+      <a href="pages/account.html" class="util-btn" aria-label="My Account">
+        <i class="fa-regular fa-circle-user"></i>
+      </a>
+      <button class="util-btn" id="cart-toggle" aria-label="Cart">
+        <i class="fa-solid fa-bag-shopping"></i><span class="util-badge" id="cart-badge">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="search-bar container" id="search-bar">
+    <i class="fa-solid fa-magnifying-glass" style="color:var(--c-text-muted)"></i>
+    <input type="search" id="search-input" placeholder="Search products…" autocomplete="off">
+    <button class="search-close" id="search-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+</header>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-hidden="true" aria-label="Cart">
+  <div class="drawer-head">
+    <h2>Your Cart</h2>
+    <button class="drawer-close" id="cart-close" aria-label="Close cart"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="drawer-body" id="cart-body">
+    <div class="cart-empty" id="cart-empty">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <p>Your cart is empty.</p>
+      <a href="pages/shop.html" class="btn btn-outline btn-sm" style="margin-top:1rem">Browse Products</a>
+    </div>
+  </div>
+  <div class="drawer-foot" id="cart-foot" style="display:none">
+    <div class="free-ship-bar">
+      <p id="free-ship-msg">Add <strong id="free-ship-remaining">€100.00</strong> more for free shipping!</p>
+      <div class="free-ship-track"><div class="free-ship-fill" id="free-ship-fill" style="width:0%"></div></div>
+    </div>
+    <div class="cart-subtotal">
+      <span>Subtotal (<span id="cart-item-count">0</span> items)</span>
+      <span id="cart-subtotal-val">€0.00</span>
+    </div>
+    <div class="cart-total"><span>Estimated Total</span><span id="cart-total-val">€0.00</span></div>
+    <a href="pages/checkout.html" class="btn btn-primary btn-full">Proceed to Checkout</a>
+    <button class="btn btn-ghost btn-full" id="cart-keep-shopping" style="margin-top:.5rem">Continue Shopping</button>
+  </div>
+</aside>
+
+<!-- TOAST -->
+<div class="toast" id="toast" aria-live="assertive">
+  <i class="fa-solid fa-circle-check"></i><span id="toast-msg">Done!</span>
+</div>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div><!-- Replace with slike/hero-bg.jpg -->
+  <div class="container hero-inner">
+    <div class="hero-content reveal">
+      <span class="hero-eyebrow">Handcrafted in Croatia</span>
+      <h1 class="hero-title">Make It <em>Uniquely</em><br>Yours</h1>
+      <p class="hero-sub">Premium laser-engraved name plates, house numbers &amp; personalised gifts — made to order with precision.</p>
+      <div class="hero-btns">
+        <a href="pages/shop.html" class="btn btn-primary btn-lg">Explore Products</a>
+        <a href="pages/about.html" class="btn btn-outline btn-lg">Our Story</a>
+      </div>
+      <div class="hero-code reveal reveal-d2">
+        <i class="fa-solid fa-tag"></i>
+        Use code <strong>PEPIKA10</strong> for 10% off your first order
+      </div>
+    </div>
+    <div class="hero-visual reveal reveal-d1">
+      <div class="hero-card">
+        <!-- Replace with: <img src="slike/hero-product.jpg" alt="Featured product"> -->
+        <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plates-for-doors.jpg" alt="Name plate product">
+        <div class="hero-card-tag">
+          <span>Bestseller</span>
+          <strong>Name Plates for Doors</strong>
+          <span>From €49.99</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><i class="fa-solid fa-chevron-down"></i></div>
+</section>
+
+<!-- ═══════════════════ USP BAR ═══════════════════ -->
+<section class="usp-bar">
+  <div class="container usp-grid">
+    <div class="usp-item reveal"><i class="fa-solid fa-truck-fast"></i><div><strong>Fast Delivery</strong><span>Ships in 3–5 business days</span></div></div>
+    <div class="usp-item reveal reveal-d1"><i class="fa-solid fa-medal"></i><div><strong>Premium Quality</strong><span>Laser-engraved, made to last</span></div></div>
+    <div class="usp-item reveal reveal-d2"><i class="fa-solid fa-sliders"></i><div><strong>Fully Customisable</strong><span>Your text, size &amp; finish</span></div></div>
+    <div class="usp-item reveal reveal-d3"><i class="fa-solid fa-rotate-left"></i><div><strong>30-Day Returns</strong><span>Hassle-free return policy</span></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CATEGORIES ═══════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Browse by Category</h2>
+      <p>Find the perfect personalised piece for every room and occasion</p>
+      <span class="accent-line"></span>
+    </div>
+    <div class="cat-grid">
+      <!-- Replace img src with: slike/cat-door-signs.jpg etc. -->
+      <a href="pages/category.html" class="cat-card reveal">
+        <div class="cat-card-img"><img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plates-for-doors.jpg" alt="Door Name Plates" loading="lazy"></div>
+        <div class="cat-card-body"><h3>Door Name Plates</h3><span>12 products</span></div>
+      </a>
+      <a href="pages/category.html" class="cat-card reveal reveal-d1">
+        <div class="cat-card-img"><img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\house-numbers.png" alt="House Numbers" loading="lazy"></div>
+        <div class="cat-card-body"><h3>House Numbers</h3><span>8 products</span></div>
+      </a>
+      <a href="pages/category.html" class="cat-card reveal reveal-d2">
+        <div class="cat-card-img"><img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\home-decor.jpg" alt="Home Décor" loading="lazy"></div>
+        <div class="cat-card-body"><h3>Home Décor</h3><span>24 products</span></div>
+      </a>
+      <a href="pages/category.html" class="cat-card reveal reveal-d3">
+        <div class="cat-card-img"><img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\led-signs.jpg" alt="LED Signs" loading="lazy"></div>
+        <div class="cat-card-body"><h3>LED Signs</h3><span>15 products</span></div>
+      </a>
+      <a href="pages/category.html" class="cat-card reveal">
+        <div class="cat-card-img"><img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\personalised-gifts.jpg" alt="Personalised Gifts" loading="lazy"></div>
+        <div class="cat-card-body"><h3>Personalised Gifts</h3><span>30 products</span></div>
+      </a>
+      <a href="pages/category.html" class="cat-card reveal reveal-d1">
+        <div class="cat-card-img"><img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\jewellery.jpg" alt="Jewellery" loading="lazy"></div>
+        <div class="cat-card-body"><h3>Jewellery</h3><span>9 products</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FEATURED PRODUCTS ═══════════════════ -->
+<section class="section" style="background:var(--c-bg-alt)">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Bestsellers</h2>
+      <p>Our most loved, most gifted products — made with exceptional care</p>
+      <span class="accent-line"></span>
+    </div>
+    <div class="products-grid">
+      <!-- CARD 1 — duplicate and edit for more products -->
+      <article class="p-card reveal">
+        <div class="p-card-img">
+          <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plates-for-doors.jpg" alt="Name Plate" loading="lazy">
+          <span class="p-card-badge badge badge-accent">Bestseller</span>
+          <button class="p-card-wish" data-wish-id="prod-001" aria-label="Save to wishlist" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+          <div class="p-card-actions">
+            <a href="pages/product.html" class="btn btn-dark btn-sm" style="flex:1">View Product</a>
+            <button class="btn btn-primary btn-sm" onclick="quickAdd('prod-001','Name Plate for Door',49.99)" aria-label="Add to cart"><i class="fa-solid fa-bag-shopping"></i></button>
+          </div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-cat">Door Signs</div>
+          <div class="p-card-name"><a href="pages/product.html">Name Plate for Door</a></div>
+          <div class="p-card-stars">★★★★★</div>
+          <div class="p-card-price">€49.99</div>
+        </div>
+      </article>
+      <article class="p-card reveal reveal-d1">
+        <div class="p-card-img">
+          <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\house-numbers.png" alt="House Number" loading="lazy">
+          <span class="p-card-badge badge badge-new">New</span>
+          <button class="p-card-wish" data-wish-id="prod-002" aria-label="Save to wishlist" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+          <div class="p-card-actions">
+            <a href="pages/product.html" class="btn btn-dark btn-sm" style="flex:1">View Product</a>
+            <button class="btn btn-primary btn-sm" onclick="quickAdd('prod-002','House Number Plate',39.99)" aria-label="Add to cart"><i class="fa-solid fa-bag-shopping"></i></button>
+          </div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-cat">House Numbers</div>
+          <div class="p-card-name"><a href="pages/product.html">House Number Plate</a></div>
+          <div class="p-card-stars">★★★★☆</div>
+          <div class="p-card-price">€39.99</div>
+        </div>
+      </article>
+      <article class="p-card reveal reveal-d2">
+        <div class="p-card-img">
+          <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\wall-clock.jpg" alt="Wall Clock" loading="lazy">
+          <button class="p-card-wish" data-wish-id="prod-003" aria-label="Save to wishlist" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+          <div class="p-card-actions">
+            <a href="pages/product.html" class="btn btn-dark btn-sm" style="flex:1">View Product</a>
+            <button class="btn btn-primary btn-sm" onclick="quickAdd('prod-003','Custom Wall Clock',59.99)" aria-label="Add to cart"><i class="fa-solid fa-bag-shopping"></i></button>
+          </div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-cat">Wall Clocks</div>
+          <div class="p-card-name"><a href="pages/product.html">Custom Wall Clock</a></div>
+          <div class="p-card-stars">★★★★★</div>
+          <div style="display:flex;align-items:center">
+            <span class="p-card-price">€59.99</span>
+            <span class="p-card-price-orig">€69.99</span>
+          </div>
+        </div>
+      </article>
+      <article class="p-card reveal reveal-d3">
+        <div class="p-card-img">
+          <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\led-signs.jpg" alt="LED Sign" loading="lazy">
+          <span class="p-card-badge badge badge-gold">Sale</span>
+          <button class="p-card-wish" data-wish-id="prod-004" aria-label="Save to wishlist" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+          <div class="p-card-actions">
+            <a href="pages/product.html" class="btn btn-dark btn-sm" style="flex:1">View Product</a>
+            <button class="btn btn-primary btn-sm" onclick="quickAdd('prod-004','LED Name Sign',79.99)" aria-label="Add to cart"><i class="fa-solid fa-bag-shopping"></i></button>
+          </div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-cat">LED Signs</div>
+          <div class="p-card-name"><a href="pages/product.html">LED Name Sign</a></div>
+          <div class="p-card-stars">★★★★☆</div>
+          <div style="display:flex;align-items:center">
+            <span class="p-card-price">€79.99</span>
+            <span class="p-card-price-orig">€99.99</span>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div style="text-align:center;margin-top:var(--sp-10)">
+      <a href="pages/shop.html" class="btn btn-outline btn-lg reveal">View All Products →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ABOUT TEASER ═══════════════════ -->
+<section class="section">
+  <div class="container about-teaser-inner">
+    <div class="about-teaser-img reveal">
+      <!-- Replace with: <img src="slike/workshop.jpg" alt="Our workshop"> -->
+      <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\workshop.jpg" alt="Pepika workshop">
+      <div class="about-badge"><strong>500+</strong><span>Happy customers</span></div>
+    </div>
+    <div class="about-teaser-text reveal reveal-d1">
+      <span class="eyebrow">Our Story</span>
+      <h2>Crafted with Care,<br><em>Made to Last</em></h2>
+      <p>We started Pepika with one goal: bring professional-grade, custom signage and gifts into everyday homes. Every item is produced in our Slavonski Brod workshop using precision laser engraving on premium materials.</p>
+      <p>No two orders are the same — that's the point.</p>
+      <ul class="about-list">
+        <li><i class="fa-solid fa-check"></i> Laser-engraved for depth and durability</li>
+        <li><i class="fa-solid fa-check"></i> Premium aluminium, wood &amp; acrylic</li>
+        <li><i class="fa-solid fa-check"></i> Custom text &amp; designs</li>
+        <li><i class="fa-solid fa-check"></i> Made &amp; shipped from Croatia</li>
+      </ul>
+      <a href="pages/about.html" class="btn btn-outline" style="margin-top:var(--sp-6)">Read Our Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ OCCASIONS ═══════════════════ -->
+<section class="section" style="background:var(--c-bg-alt)">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Gifts for Every Occasion</h2>
+      <p>Birthdays, weddings, housewarmings — we have the perfect personalised gift</p>
+      <span class="accent-line"></span>
+    </div>
+    <div class="occasions-grid">
+      <a href="pages/category.html" class="occ-card reveal"><i class="fa-solid fa-cake-candles"></i><span>Birthday</span></a>
+      <a href="pages/category.html" class="occ-card reveal reveal-d1"><i class="fa-solid fa-ring"></i><span>Wedding</span></a>
+      <a href="pages/category.html" class="occ-card reveal reveal-d2"><i class="fa-solid fa-house"></i><span>Housewarming</span></a>
+      <a href="pages/category.html" class="occ-card reveal reveal-d3"><i class="fa-solid fa-tree"></i><span>Christmas</span></a>
+      <a href="pages/category.html" class="occ-card reveal"><i class="fa-solid fa-baby"></i><span>New Baby</span></a>
+      <a href="pages/category.html" class="occ-card reveal reveal-d1"><i class="fa-solid fa-graduation-cap"></i><span>Graduation</span></a>
+      <a href="pages/category.html" class="occ-card reveal reveal-d2"><i class="fa-solid fa-heart"></i><span>Valentine's</span></a>
+      <a href="pages/category.html" class="occ-card reveal reveal-d3"><i class="fa-solid fa-egg"></i><span>Easter</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>What Our Customers Say</h2>
+      <span class="accent-line"></span>
+    </div>
+    <div class="testimonials-grid">
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"The quality is incredible — the laser engraving is so crisp and clean. Arrived within 4 days and the packaging was beautiful."</p>
+        <div class="t-author"><div class="t-avatar">M</div><div><strong>Marko K.</strong><span>Zagreb</span></div></div>
+      </div>
+      <div class="t-card reveal reveal-d1">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"I ordered personalised door plates for our whole apartment block. Absolutely perfect — better than anything I found in stores."</p>
+        <div class="t-author"><div class="t-avatar">A</div><div><strong>Ana P.</strong><span>Split</span></div></div>
+      </div>
+      <div class="t-card reveal reveal-d2">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"Bought as a housewarming gift. The recipient was genuinely moved — it looked so professional and personal at the same time."</p>
+        <div class="t-author"><div class="t-avatar">I</div><div><strong>Ivan B.</strong><span>Rijeka</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ INSTAGRAM ═══════════════════ -->
+<section class="insta-section">
+  <div class="insta-header">
+    <a href="https://instagram.com" target="_blank" rel="noopener">
+      <i class="fa-brands fa-instagram"></i> @pepika_official
+    </a>
+    <span>Follow us for daily inspiration</span>
+  </div>
+  <div class="insta-grid">
+    <!-- Replace each src with real Instagram post images from slike/insta-X.jpg -->
+    <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-cell"><img src="https://placehold.co/300x300/f3ede4/c06b3a?text=IG+1" alt="Instagram 1" loading="lazy"><div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div></a>
+    <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-cell"><img src="https://placehold.co/300x300/ede4d8/9a4f25?text=IG+2" alt="Instagram 2" loading="lazy"><div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div></a>
+    <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-cell"><img src="https://placehold.co/300x300/e8f0f4/3a5a6a?text=IG+3" alt="Instagram 3" loading="lazy"><div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div></a>
+    <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-cell"><img src="https://placehold.co/300x300/f4ede8/7a4030?text=IG+4" alt="Instagram 4" loading="lazy"><div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div></a>
+    <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-cell"><img src="https://placehold.co/300x300/ede8f4/5a3a6a?text=IG+5" alt="Instagram 5" loading="lazy"><div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div></a>
+    <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-cell"><img src="https://placehold.co/300x300/e8f4ec/2a5a3a?text=IG+6" alt="Instagram 6" loading="lazy"><div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col">
+        <span class="footer-logo">Pepika</span>
+        <p class="footer-tagline">Premium custom name plates, signs &amp; personalised gifts — crafted in Croatia.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Shop</h4>
+        <nav>
+          <a href="pages/shop.html">All Products</a>
+          <a href="pages/category.html">Door Signs</a>
+          <a href="pages/category.html">House Numbers</a>
+          <a href="pages/category.html">Personalised Gifts</a>
+          <a href="pages/shop.html">Sale</a>
+        </nav>
+      </div>
+      <div class="footer-col"><h4>Company</h4>
+        <nav>
+          <a href="pages/about.html">About Us</a>
+          <a href="pages/contact.html">Contact</a>
+          <a href="#">Shipping Policy</a>
+          <a href="#">Returns</a>
+          <a href="#">Privacy Policy</a>
+        </nav>
+      </div>
+      <div class="footer-col"><h4>Contact</h4>
+        <address>
+          <p><i class="fa-solid fa-envelope"></i>lorena.tijan@gmail.com</p>
+          <p><i class="fa-solid fa-phone"></i>+385 91 469 2219</p>
+          <p><i class="fa-solid fa-location-dot"></i>Slavonski Brod, Croatia</p>
+        </address>
+      </div>
+      <div class="footer-col"><h4>Newsletter</h4>
+        <p style="font-size:var(--fs-sm);color:rgba(255,255,255,.55);margin-bottom:var(--sp-2)">Exclusive offers &amp; new launches.</p>
+        <form class="newsletter-form" id="footer-newsletter" novalidate>
+          <input type="email" placeholder="your@email.com" aria-label="Email for newsletter">
+          <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="footer-copy">&copy; <span class="footer-year">2025</span> Pepika. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
+      <div class="footer-pay">
+        <i class="fa-brands fa-cc-visa" title="Visa"></i>
+        <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+        <i class="fa-brands fa-cc-paypal" title="PayPal"></i>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
+</body>
+</html>

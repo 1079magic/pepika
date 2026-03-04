@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — Pepika</title>
+  <meta name="description" content="Get in touch with Pepika. We're happy to answer questions about your order.">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="promo-bar">🎁 Free shipping over <strong>€100</strong> &nbsp;|&nbsp; Code <strong>PEPIKA10</strong> for 10% off &nbsp;<a href="shop.html">Shop now →</a></div>
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="site-logo">Pepika</a>
+    <nav class="site-nav" id="site-nav">
+      <div class="nav-item"><a href="../index.html" class="nav-link">Home</a></div>
+      <div class="nav-item"><a href="shop.html" class="nav-link">Shop <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="nav-dropdown"><a href="shop.html" class="dropdown-all"><i class="fa-solid fa-grid-2"></i> All Products</a><hr>
+          <a href="category.html"><i class="fa-regular fa-square-check"></i> Door Name Plates</a>
+          <a href="category.html"><i class="fa-solid fa-house"></i> House Numbers</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></div>
+    </nav>
+    <div class="header-utils">
+      <button class="util-btn" id="search-toggle"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <a href="account.html#wishlist" class="util-btn"><i class="fa-regular fa-heart"></i><span class="util-badge" id="wish-badge">0</span></a>
+      <a href="account.html" class="util-btn"><i class="fa-regular fa-circle-user"></i></a>
+      <button class="util-btn" id="cart-toggle"><i class="fa-solid fa-bag-shopping"></i><span class="util-badge" id="cart-badge">0</span></button>
+      <button class="hamburger" id="hamburger" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="search-bar container" id="search-bar">
+    <i class="fa-solid fa-magnifying-glass" style="color:var(--c-text-muted)"></i>
+    <input type="search" id="search-input" placeholder="Search products…">
+    <button class="search-close" id="search-close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+</header>
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+  <div class="drawer-head"><h2>Your Cart</h2><button class="drawer-close" id="cart-close"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="drawer-body" id="cart-body"><div class="cart-empty" id="cart-empty"><i class="fa-solid fa-bag-shopping"></i><p>Your cart is empty.</p></div></div>
+  <div class="drawer-foot" id="cart-foot" style="display:none">
+    <div class="free-ship-bar"><p id="free-ship-msg">Add <strong>€100.00</strong> more for free shipping!</p><div class="free-ship-track"><div class="free-ship-fill" id="free-ship-fill" style="width:0%"></div></div></div>
+    <div class="cart-subtotal"><span>Subtotal (<span id="cart-item-count">0</span> items)</span><span id="cart-subtotal-val">€0.00</span></div>
+    <div class="cart-total"><span>Total</span><span id="cart-total-val">€0.00</span></div>
+    <a href="checkout.html" class="btn btn-primary btn-full">Proceed to Checkout</a>
+    <button class="btn btn-ghost btn-full" id="cart-keep-shopping" style="margin-top:.5rem">Continue Shopping</button>
+  </div>
+</aside>
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toast-msg">Done!</span></div>
+
+<nav class="breadcrumb-bar"><div class="container"><ol class="breadcrumb">
+  <li><a href="../index.html">Home</a></li>
+  <li><i class="fa-solid fa-chevron-right"></i></li>
+  <li>Contact</li>
+</ol></div></nav>
+
+<div class="contact-hero">
+  <div class="container" style="text-align:center">
+    <span class="eyebrow">We're here to help</span>
+    <h1 style="font-size:var(--fs-2xl)">Get in Touch</h1>
+    <p style="color:var(--c-text-muted);margin-top:var(--sp-3)">Have a question about your order, a custom request, or just want to say hello? We typically reply within a few hours.</p>
+  </div>
+</div>
+
+<section class="section-sm">
+  <div class="container contact-layout">
+
+    <!-- CONTACT FORM -->
+    <div class="contact-form-col">
+      <h2>Send Us a Message</h2>
+
+      <!-- Success state (shown after submit) -->
+      <div class="form-success" id="form-success" style="display:none">
+        <i class="fa-solid fa-circle-check" style="font-size:1.4rem;flex-shrink:0"></i>
+        <div>
+          <strong>Message sent!</strong><br>
+          We'll get back to you within 1–2 business hours.
+        </div>
+      </div>
+
+      <form class="contact-form" id="contact-form" novalidate>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4)">
+          <div class="field">
+            <label for="ct-name">Full Name <span class="req">*</span></label>
+            <input type="text" id="ct-name" placeholder="Marko Kovač">
+            <span class="err">Please enter your name</span>
+          </div>
+          <div class="field">
+            <label for="ct-email">Email Address <span class="req">*</span></label>
+            <input type="email" id="ct-email" placeholder="marko@example.com">
+            <span class="err">Valid email required</span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="ct-subject">Subject <span class="req">*</span></label>
+          <select id="ct-subject">
+            <option value="" disabled selected>— Select a topic —</option>
+            <option value="order">Order Enquiry</option>
+            <option value="custom">Custom Order Request</option>
+            <option value="shipping">Shipping &amp; Delivery</option>
+            <option value="return">Return / Exchange</option>
+            <option value="other">Other</option>
+          </select>
+          <span class="err">Please select a topic</span>
+        </div>
+        <div class="field">
+          <label for="ct-message">Message <span class="req">*</span></label>
+          <textarea id="ct-message" rows="6" placeholder="Tell us how we can help…"></textarea>
+          <span class="err">Please write your message</span>
+        </div>
+        <label class="checkbox-label">
+          <input type="checkbox" id="ct-consent">
+          I agree to the processing of my data as per the <a href="#" style="color:var(--c-accent);text-decoration:underline">Privacy Policy</a>
+        </label>
+        <button type="submit" class="btn btn-primary">
+          <i class="fa-solid fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+    </div>
+
+    <!-- CONTACT INFO + FAQ -->
+    <div>
+      <div class="contact-info-card">
+        <h3>Contact Information</h3>
+        <div class="contact-info-row">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <strong>Email</strong>
+            <a href="mailto:lorena.tijan@gmail.com">lorena.tijan@gmail.com</a>
+            <span>We reply within 1–2 business hours</span>
+          </div>
+        </div>
+        <div class="contact-info-row">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <strong>Phone / WhatsApp</strong>
+            <a href="tel:+385914692219">+385 91 469 2219</a>
+            <span>Mon–Fri, 8:00–16:00</span>
+          </div>
+        </div>
+        <div class="contact-info-row">
+          <i class="fa-solid fa-clock"></i>
+          <div>
+            <strong>Working Hours</strong>
+            <span>Monday–Friday: 8:00 – 16:00</span>
+            <span>Saturday: 8:00 – 12:00</span>
+          </div>
+        </div>
+        <div class="contact-info-row">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <strong>Location</strong>
+            <span>Slavonski Brod, Croatia</span>
+            <span>EU shipping available</span>
+          </div>
+        </div>
+        <div style="margin-top:var(--sp-5)">
+          <strong style="font-size:var(--fs-xs);letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:var(--sp-3)">Follow Us</strong>
+          <div style="display:flex;gap:var(--sp-3)">
+            <a href="#" class="btn btn-outline btn-sm"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="#" class="btn btn-outline btn-sm"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="#" class="btn btn-outline btn-sm"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="contact-faq">
+        <h3>Frequently Asked Questions</h3>
+
+        <div class="faq-item">
+          <button class="faq-q">How do I personalise my order? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>After adding a product to your cart, proceed to checkout. There is an "Order Notes" field on the Information step — enter your custom text there. We'll confirm it before engraving.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">How long does production take? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Most orders are produced within 1–2 business days and shipped the same day production is complete. You'll receive tracking information by email as soon as your order is dispatched.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Can I return a personalised product? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Because personalised items are made to order, we can only accept returns if the product arrives damaged or if we made an error. If there's any issue, contact us within 48 hours of receiving your order and we'll make it right.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Do you ship outside Croatia? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Yes! We ship throughout the EU. Delivery times and prices vary by country and are shown at checkout. For countries outside the EU, please contact us directly.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Can I see a preview before production? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>For most standard products we proceed directly to production as the layout is straightforward. For complex or large custom orders we'll send a digital preview by email for approval first.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container"><div class="footer-top">
+    <div class="footer-col"><span class="footer-logo">Pepika</span><p class="footer-tagline">Premium personalised products — crafted in Croatia.</p><div class="footer-social"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    <div class="footer-col"><h4>Shop</h4><nav><a href="shop.html">All Products</a><a href="category.html">Door Signs</a><a href="category.html">House Numbers</a></nav></div>
+    <div class="footer-col"><h4>Company</h4><nav><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="#">Shipping</a><a href="#">Returns</a></nav></div>
+    <div class="footer-col"><h4>Contact</h4><address><p><i class="fa-solid fa-envelope"></i>info@pepika.com</p><p><i class="fa-solid fa-phone"></i>+385 99 000 0000</p><p><i class="fa-solid fa-location-dot"></i>Zagreb, Croatia</p></address></div>
+    <div class="footer-col"><h4>Newsletter</h4><form class="newsletter-form" id="footer-newsletter" novalidate><input type="email" placeholder="your@email.com"><button type="submit" class="btn btn-primary btn-sm">Subscribe</button></form></div>
+  </div></div>
+  <div class="footer-bottom"><div class="container footer-bottom-inner">
+    <p class="footer-copy">&copy; <span class="footer-year">2025</span> Pepika.</p>
+    <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    <div class="footer-pay"><i class="fa-brands fa-cc-visa"></i><i class="fa-brands fa-cc-mastercard"></i><i class="fa-brands fa-cc-paypal"></i></div>
+  </div></div>
+</footer>
+
+<script src="../js/site.js"></script>
+<script src="../js/contact.js"></script>
+</body>
+</html>

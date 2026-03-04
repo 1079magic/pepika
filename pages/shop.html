@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shop — Pepika</title>
+  <meta name="description" content="Browse all Pepika personalised products.">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/shop.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- PROMO BAR -->
+<div class="promo-bar">🎁 Free shipping over <strong>€100</strong> &nbsp;|&nbsp; Code <strong>PEPIKA10</strong> for 10% off &nbsp;<a href="shop.html">Shop now →</a></div>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="site-logo">Pepika</a>
+    <nav class="site-nav" id="site-nav">
+      <div class="nav-item"><a href="../index.html" class="nav-link">Home</a></div>
+      <div class="nav-item">
+        <a href="shop.html" class="nav-link active">Shop <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="nav-dropdown">
+          <a href="shop.html" class="dropdown-all"><i class="fa-solid fa-grid-2"></i> All Products</a>
+          <hr>
+          <a href="category.html"><i class="fa-regular fa-square-check"></i> Door Name Plates</a>
+          <a href="category.html"><i class="fa-solid fa-house"></i> House Numbers</a>
+          <a href="category.html"><i class="fa-solid fa-couch"></i> Home Décor</a>
+          <a href="category.html"><i class="fa-solid fa-gift"></i> Personalised Gifts</a>
+          <a href="category.html"><i class="fa-solid fa-lightbulb"></i> LED Signs</a>
+          <a href="category.html"><i class="fa-solid fa-gem"></i> Jewellery</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+    </nav>
+    <div class="header-utils">
+      <button class="util-btn" id="search-toggle"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <a href="account.html#wishlist" class="util-btn"><i class="fa-regular fa-heart"></i><span class="util-badge" id="wish-badge">0</span></a>
+      <a href="account.html" class="util-btn"><i class="fa-regular fa-circle-user"></i></a>
+      <button class="util-btn" id="cart-toggle"><i class="fa-solid fa-bag-shopping"></i><span class="util-badge" id="cart-badge">0</span></button>
+      <button class="hamburger" id="hamburger" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="search-bar container" id="search-bar">
+    <i class="fa-solid fa-magnifying-glass" style="color:var(--c-text-muted)"></i>
+    <input type="search" id="search-input" placeholder="Search products…" autocomplete="off">
+    <button class="search-close" id="search-close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+</header>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+  <div class="drawer-head"><h2>Your Cart</h2><button class="drawer-close" id="cart-close"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="drawer-body" id="cart-body"><div class="cart-empty" id="cart-empty"><i class="fa-solid fa-bag-shopping"></i><p>Your cart is empty.</p><a href="shop.html" class="btn btn-outline btn-sm" style="margin-top:1rem">Browse Products</a></div></div>
+  <div class="drawer-foot" id="cart-foot" style="display:none">
+    <div class="free-ship-bar"><p id="free-ship-msg">Add <strong>€100.00</strong> more for free shipping!</p><div class="free-ship-track"><div class="free-ship-fill" id="free-ship-fill" style="width:0%"></div></div></div>
+    <div class="cart-subtotal"><span>Subtotal (<span id="cart-item-count">0</span> items)</span><span id="cart-subtotal-val">€0.00</span></div>
+    <div class="cart-total"><span>Total</span><span id="cart-total-val">€0.00</span></div>
+    <a href="checkout.html" class="btn btn-primary btn-full">Proceed to Checkout</a>
+    <button class="btn btn-ghost btn-full" id="cart-keep-shopping" style="margin-top:.5rem">Continue Shopping</button>
+  </div>
+</aside>
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toast-msg">Done!</span></div>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb-bar"><div class="container"><ol class="breadcrumb">
+  <li><a href="../index.html">Home</a></li>
+  <li><i class="fa-solid fa-chevron-right"></i></li>
+  <li>All Products</li>
+</ol></div></nav>
+
+<!-- SHOP HERO -->
+<div class="shop-hero-bar">
+  <div class="container shop-hero-inner">
+    <div>
+      <h1>All Products</h1>
+      <p id="product-count-label">Showing 24 products</p>
+    </div>
+  </div>
+</div>
+
+<!-- SHOP LAYOUT -->
+<section class="section-sm">
+  <div class="container shop-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="shop-sidebar" id="shop-sidebar">
+      <div class="sidebar-close-btn">
+        <h3>Filters</h3>
+        <button class="btn btn-ghost btn-sm" id="sidebar-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="sidebar-head" style="display:none">
+        <h3>Filters</h3>
+        <button class="btn btn-ghost btn-sm" id="clear-filters">Clear all</button>
+      </div>
+      <div style="display:flex;justify-content:flex-end;margin-bottom:var(--sp-4)">
+        <button class="btn btn-ghost btn-sm" id="clear-filters-2">Clear all</button>
+      </div>
+
+      <!-- CATEGORIES -->
+      <div class="filter-group">
+        <button class="filter-toggle" aria-expanded="true">Categories <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="filter-body">
+          <label class="filter-check"><input type="checkbox" value="door-signs"> Door Name Plates <span class="filter-count">(12)</span></label>
+          <label class="filter-check"><input type="checkbox" value="house-numbers"> House Numbers <span class="filter-count">(8)</span></label>
+          <label class="filter-check"><input type="checkbox" value="home-decor"> Home Décor <span class="filter-count">(24)</span></label>
+          <label class="filter-check"><input type="checkbox" value="led"> LED Signs <span class="filter-count">(15)</span></label>
+          <label class="filter-check"><input type="checkbox" value="gifts"> Personalised Gifts <span class="filter-count">(30)</span></label>
+          <label class="filter-check"><input type="checkbox" value="clocks"> Wall Clocks <span class="filter-count">(8)</span></label>
+          <label class="filter-check"><input type="checkbox" value="jewellery"> Jewellery <span class="filter-count">(9)</span></label>
+        </div>
+      </div>
+
+      <!-- PRICE RANGE -->
+      <div class="filter-group">
+        <button class="filter-toggle" aria-expanded="true">Price Range <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="filter-body">
+          <div class="price-range-wrap">
+            <input type="range" id="price-min" min="0" max="200" value="0" class="range-slider">
+            <input type="range" id="price-max" min="0" max="200" value="200" class="range-slider">
+            <div class="price-display">
+              <span>€<span id="price-min-val">0</span></span>
+              <span>€<span id="price-max-val">200</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATERIAL -->
+      <div class="filter-group">
+        <button class="filter-toggle" aria-expanded="false">Material <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="filter-body" style="display:none">
+          <label class="filter-check"><input type="checkbox" value="aluminium"> Aluminium</label>
+          <label class="filter-check"><input type="checkbox" value="wood"> Wood</label>
+          <label class="filter-check"><input type="checkbox" value="acrylic"> Acrylic</label>
+          <label class="filter-check"><input type="checkbox" value="stainless"> Stainless Steel</label>
+        </div>
+      </div>
+
+      <!-- RATING -->
+      <div class="filter-group">
+        <button class="filter-toggle" aria-expanded="false">Rating <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="filter-body" style="display:none">
+          <label class="filter-check"><input type="radio" name="rating" value="5"> ★★★★★ &amp; up</label>
+          <label class="filter-check"><input type="radio" name="rating" value="4"> ★★★★☆ &amp; up</label>
+          <label class="filter-check"><input type="radio" name="rating" value="3"> ★★★☆☆ &amp; up</label>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="shop-main">
+      <div class="shop-toolbar">
+        <select class="sort-select" id="sort-select" aria-label="Sort products">
+          <option value="popular">Most Popular</option>
+          <option value="newest">Newest</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Best Rated</option>
+        </select>
+        <div class="view-toggle">
+          <button class="view-btn active" data-view="grid" aria-label="Grid view"><i class="fa-solid fa-grid-2"></i></button>
+          <button class="view-btn" data-view="list" aria-label="List view"><i class="fa-solid fa-list"></i></button>
+        </div>
+        <button class="btn btn-outline btn-sm mobile-filter-btn" id="mobile-filter-btn">
+          <i class="fa-solid fa-sliders"></i> Filters
+        </button>
+      </div>
+
+      <!-- Active filter tags (JS-populated) -->
+      <div class="active-filters" id="active-filters"></div>
+
+      <!-- PRODUCT GRID -->
+      <!-- To add products: duplicate .p-card blocks, update id, name, price, image src -->
+      <div class="shop-grid" id="products-grid">
+
+        <article class="p-card">
+          <div class="p-card-img">
+            <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plate.png" alt="Name Plate" loading="lazy">
+            <span class="p-card-badge badge badge-accent">Bestseller</span>
+            <button class="p-card-wish" data-wish-id="prod-001" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+            <div class="p-card-actions">
+              <a href="product.html" class="btn btn-dark btn-sm" style="flex:1">View Product</a>
+              <button class="btn btn-primary btn-sm" onclick="quickAdd('prod-001','Name Plate for Door',49.99)"><i class="fa-solid fa-bag-shopping"></i></button>
+            </div>
+          </div>
+          <div class="p-card-body">
+            <div class="p-card-cat">Door Signs</div>
+            <div class="p-card-name"><a href="product.html">Name Plate for Door</a></div>
+            <div class="p-card-stars">★★★★★</div>
+            <div class="p-card-price">€49.99</div>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="p-card-img">
+            <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\name-plates-for-doors.jpg" alt="House Number" loading="lazy">
+            <span class="p-card-badge badge badge-new">New</span>
+            <button class="p-card-wish" data-wish-id="prod-002" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+            <div class="p-card-actions">
+              <a href="product.html" class="btn btn-dark btn-sm" style="flex:1">View Product</a>
+              <button class="btn btn-primary btn-sm" onclick="quickAdd('prod-002','House Number Plate',39.99)"><i class="fa-solid fa-bag-shopping"></i></button>
+            </div>
+          </div>
+          <div class="p-card-body">
+            <div class="p-card-cat">House Numbers</div>
+            <div class="p-card-name"><a href="product.html">House Number Plate</a></div>
+            <div class="p-card-stars">★★★★☆</div>
+            <div class="p-card-price">€39.99</div>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="p-card-img">
+            <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\wall-clock-2.jpg" alt="Wall Clock 2" loading="lazy">
+            <span class="p-card-badge badge badge-gold">Sale</span>
+            <button class="p-card-wish" data-wish-id="prod-003" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+            <div class="p-card-actions">
+              <a href="product.html" class="btn btn-dark btn-sm" style="flex:1">View Product</a>
+              <button class="btn btn-primary btn-sm" onclick="quickAdd('prod-003','Custom Wall Clock',59.99)"><i class="fa-solid fa-bag-shopping"></i></button>
+            </div>
+          </div>
+          <div class="p-card-body">
+            <div class="p-card-cat">Wall Clocks</div>
+            <div class="p-card-name"><a href="product.html">Custom Wall Clock</a></div>
+            <div class="p-card-stars">★★★★★</div>
+            <div style="display:flex;align-items:center">
+              <span class="p-card-price">€59.99</span><span class="p-card-price-orig">€69.99</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="p-card-img">
+            <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\led-sign-2.jpg" alt="LED Sign 2" loading="lazy">
+            <button class="p-card-wish" data-wish-id="prod-004" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+            <div class="p-card-actions">
+              <a href="product.html" class="btn btn-dark btn-sm" style="flex:1">View Product</a>
+              <button class="btn btn-primary btn-sm" onclick="quickAdd('prod-004','LED Name Sign',89.99)"><i class="fa-solid fa-bag-shopping"></i></button>
+            </div>
+          </div>
+          <div class="p-card-body">
+            <div class="p-card-cat">LED Signs</div>
+            <div class="p-card-name"><a href="product.html">LED Name Sign</a></div>
+            <div class="p-card-stars">★★★★☆</div>
+            <div class="p-card-price">€89.99</div>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="p-card-img">
+            <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\personalised-gifts.jpg" alt="Gift Set" loading="lazy">
+            <span class="p-card-badge badge badge-new">New</span>
+            <button class="p-card-wish" data-wish-id="prod-005" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+            <div class="p-card-actions">
+              <a href="product.html" class="btn btn-dark btn-sm" style="flex:1">View Product</a>
+              <button class="btn btn-primary btn-sm" onclick="quickAdd('prod-005','Personalised Gift Set',79.99)"><i class="fa-solid fa-bag-shopping"></i></button>
+            </div>
+          </div>
+          <div class="p-card-body">
+            <div class="p-card-cat">Gifts</div>
+            <div class="p-card-name"><a href="product.html">Personalised Gift Set</a></div>
+            <div class="p-card-stars">★★★★★</div>
+            <div class="p-card-price">€79.99</div>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="p-card-img">
+            <img src="C:\Users\hadzisejdice\Downloads\Pepika\proizvodi\earrings.jpg" alt="Earrings" loading="lazy">
+            <button class="p-card-wish" data-wish-id="prod-006" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+            <div class="p-card-actions">
+              <a href="product.html" class="btn btn-dark btn-sm" style="flex:1">View Product</a>
+              <button class="btn btn-primary btn-sm" onclick="quickAdd('prod-006','Engraved Earrings',29.99)"><i class="fa-solid fa-bag-shopping"></i></button>
+            </div>
+          </div>
+          <div class="p-card-body">
+            <div class="p-card-cat">Jewellery</div>
+            <div class="p-card-name"><a href="product.html">Engraved Earrings</a></div>
+            <div class="p-card-stars">★★★★★</div>
+            <div class="p-card-price">€29.99</div>
+          </div>
+        </article>
+
+      </div><!-- /#products-grid -->
+
+      <!-- PAGINATION -->
+      <nav class="pagination" aria-label="Products pagination">
+        <button class="page-btn" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <span style="padding:0 var(--sp-2);color:var(--c-text-muted)">…</span>
+        <button class="page-btn">8</button>
+        <button class="page-btn" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+      </nav>
+    </main>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container"><div class="footer-top">
+    <div class="footer-col"><span class="footer-logo">Pepika</span><p class="footer-tagline">Premium personalised products — crafted in Croatia.</p><div class="footer-social"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    <div class="footer-col"><h4>Shop</h4><nav><a href="shop.html">All Products</a><a href="category.html">Door Signs</a><a href="category.html">House Numbers</a><a href="category.html">Gifts</a></nav></div>
+    <div class="footer-col"><h4>Company</h4><nav><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="#">Shipping</a><a href="#">Returns</a></nav></div>
+    <div class="footer-col"><h4>Contact</h4><address><p><i class="fa-solid fa-envelope"></i>info@pepika.com</p><p><i class="fa-solid fa-phone"></i>+385 99 000 0000</p></address></div>
+    <div class="footer-col"><h4>Newsletter</h4><form class="newsletter-form" id="footer-newsletter" novalidate><input type="email" placeholder="your@email.com"><button type="submit" class="btn btn-primary btn-sm">Subscribe</button></form></div>
+  </div></div>
+  <div class="footer-bottom"><div class="container footer-bottom-inner">
+    <p class="footer-copy">&copy; <span class="footer-year">2025</span> Pepika.</p>
+    <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    <div class="footer-pay"><i class="fa-brands fa-cc-visa"></i><i class="fa-brands fa-cc-mastercard"></i><i class="fa-brands fa-cc-paypal"></i></div>
+  </div></div>
+</footer>
+
+<script src="../js/site.js"></script>
+<script src="../js/shop.js"></script>
+</body>
+</html>

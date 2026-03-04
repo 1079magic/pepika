@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cart — Pepika</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="promo-bar">🎁 Free shipping over <strong>€100</strong> &nbsp;|&nbsp; Code <strong>PEPIKA10</strong> for 10% off &nbsp;<a href="shop.html">Shop now →</a></div>
+
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="site-logo">Pepika</a>
+    <nav class="site-nav" id="site-nav">
+      <div class="nav-item"><a href="../index.html" class="nav-link">Home</a></div>
+      <div class="nav-item"><a href="shop.html" class="nav-link">Shop <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="nav-dropdown">
+          <a href="shop.html" class="dropdown-all"><i class="fa-solid fa-grid-2"></i> All Products</a><hr>
+          <a href="category.html"><i class="fa-regular fa-square-check"></i> Door Name Plates</a>
+          <a href="category.html"><i class="fa-solid fa-house"></i> House Numbers</a>
+          <a href="category.html"><i class="fa-solid fa-gift"></i> Personalised Gifts</a>
+          <a href="category.html"><i class="fa-solid fa-lightbulb"></i> LED Signs</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+    </nav>
+    <div class="header-utils">
+      <button class="util-btn" id="search-toggle"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <a href="account.html#wishlist" class="util-btn"><i class="fa-regular fa-heart"></i><span class="util-badge" id="wish-badge">0</span></a>
+      <a href="account.html" class="util-btn"><i class="fa-regular fa-circle-user"></i></a>
+      <button class="util-btn" id="cart-toggle"><i class="fa-solid fa-bag-shopping"></i><span class="util-badge" id="cart-badge">0</span></button>
+      <button class="hamburger" id="hamburger" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="search-bar container" id="search-bar">
+    <i class="fa-solid fa-magnifying-glass" style="color:var(--c-text-muted)"></i>
+    <input type="search" id="search-input" placeholder="Search products…">
+    <button class="search-close" id="search-close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+</header>
+
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+  <div class="drawer-head"><h2>Your Cart</h2><button class="drawer-close" id="cart-close"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="drawer-body" id="cart-body"><div class="cart-empty" id="cart-empty"><i class="fa-solid fa-bag-shopping"></i><p>Your cart is empty.</p></div></div>
+  <div class="drawer-foot" id="cart-foot" style="display:none">
+    <div class="free-ship-bar"><p id="free-ship-msg"></p><div class="free-ship-track"><div class="free-ship-fill" id="free-ship-fill" style="width:0%"></div></div></div>
+    <div class="cart-subtotal"><span>Subtotal (<span id="cart-item-count">0</span> items)</span><span id="cart-subtotal-val">€0.00</span></div>
+    <div class="cart-total"><span>Total</span><span id="cart-total-val">€0.00</span></div>
+    <a href="checkout.html" class="btn btn-primary btn-full">Proceed to Checkout</a>
+    <button class="btn btn-ghost btn-full" id="cart-keep-shopping" style="margin-top:.5rem">Continue Shopping</button>
+  </div>
+</aside>
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toast-msg">Done!</span></div>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb-bar"><div class="container"><ol class="breadcrumb">
+  <li><a href="../index.html">Home</a></li>
+  <li><i class="fa-solid fa-chevron-right"></i></li>
+  <li>Cart</li>
+</ol></div></nav>
+
+<!-- CART PAGE -->
+<section class="section-sm">
+  <div class="container">
+    <h1 class="cart-page-title">Your Cart</h1>
+
+    <div class="cart-page-layout" id="cart-page-layout">
+
+      <!-- LEFT: ITEMS -->
+      <div>
+        <div class="cart-items-col">
+
+          <div class="cart-items-head">
+            <span>Product</span>
+            <span>Price</span>
+            <span>Quantity</span>
+            <span>Total</span>
+            <span></span>
+          </div>
+
+          <!-- JS-rendered cart items will be inserted here -->
+          <div id="cart-page-items">
+            <!-- Empty state shown by JS when cart is empty -->
+            <div class="cart-page-empty" id="cart-page-empty" style="display:none">
+              <i class="fa-solid fa-bag-shopping"></i>
+              <h3>Your cart is empty</h3>
+              <p>Looks like you haven't added anything yet.</p>
+              <a href="shop.html" class="btn btn-primary" style="margin-top:var(--sp-6)">
+                <i class="fa-solid fa-arrow-left"></i> Continue Shopping
+              </a>
+            </div>
+          </div>
+
+          <!-- COUPON -->
+          <div class="coupon-row" id="coupon-row">
+            <div class="field" style="flex:1">
+              <label for="coupon-input">Discount code</label>
+              <input type="text" id="coupon-input" placeholder="Enter code…">
+            </div>
+            <button class="btn btn-outline" id="coupon-btn" style="margin-top:1.5rem">Apply</button>
+          </div>
+          <div class="coupon-msg" id="coupon-msg"></div>
+
+        </div><!-- /.cart-items-col -->
+
+        <!-- CONTINUE SHOPPING -->
+        <div style="margin-top:var(--sp-5)">
+          <a href="shop.html" class="btn btn-ghost btn-sm">
+            <i class="fa-solid fa-arrow-left"></i> Continue Shopping
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: SUMMARY -->
+      <div class="order-summary-box" id="cart-summary-box">
+        <h3>Order Summary</h3>
+
+        <div class="summary-line">
+          <span>Subtotal (<span id="cart-summary-count">0</span> items)</span>
+          <span id="cart-summary-sub">€0.00</span>
+        </div>
+        <div class="summary-line" id="discount-line" style="display:none;color:var(--c-success)">
+          <span>Discount (<span id="discount-code-label"></span>)</span>
+          <span id="discount-amount">−€0.00</span>
+        </div>
+        <div class="summary-line">
+          <span>Shipping</span>
+          <span id="cart-shipping-val">Free over €100</span>
+        </div>
+        <div class="summary-total">
+          <span>Total</span>
+          <span id="cart-summary-total">€0.00</span>
+        </div>
+
+        <a href="checkout.html" class="btn btn-primary btn-full" id="checkout-btn">
+          <i class="fa-solid fa-lock"></i> Proceed to Checkout
+        </a>
+
+        <div class="summary-trust">
+          <div><i class="fa-solid fa-lock"></i> Secure SSL checkout</div>
+          <div><i class="fa-solid fa-rotate-left"></i> 30-day return policy</div>
+          <div><i class="fa-solid fa-truck-fast"></i> Free shipping over €100</div>
+        </div>
+        <div class="summary-pay">
+          <i class="fa-brands fa-cc-visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+          <i class="fa-brands fa-cc-paypal" title="PayPal"></i>
+        </div>
+      </div>
+
+    </div><!-- /.cart-page-layout -->
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container"><div class="footer-top">
+    <div class="footer-col"><span class="footer-logo">Pepika</span><p class="footer-tagline">Premium personalised products — crafted in Croatia.</p><div class="footer-social"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a></div></div>
+    <div class="footer-col"><h4>Shop</h4><nav><a href="shop.html">All Products</a><a href="category.html">Door Signs</a></nav></div>
+    <div class="footer-col"><h4>Company</h4><nav><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="#">Shipping</a></nav></div>
+    <div class="footer-col"><h4>Contact</h4><address><p><i class="fa-solid fa-envelope"></i>info@pepika.com</p><p><i class="fa-solid fa-phone"></i>+385 99 000 0000</p></address></div>
+    <div class="footer-col"><h4>Newsletter</h4><form class="newsletter-form" id="footer-newsletter" novalidate><input type="email" placeholder="your@email.com"><button type="submit" class="btn btn-primary btn-sm">Subscribe</button></form></div>
+  </div></div>
+  <div class="footer-bottom"><div class="container footer-bottom-inner">
+    <p class="footer-copy">&copy; <span class="footer-year">2025</span> Pepika.</p>
+    <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    <div class="footer-pay"><i class="fa-brands fa-cc-visa"></i><i class="fa-brands fa-cc-mastercard"></i><i class="fa-brands fa-cc-paypal"></i></div>
+  </div></div>
+</footer>
+
+<script src="../js/site.js"></script>
+<script src="../js/pages.js"></script>
+</body>
+</html>
