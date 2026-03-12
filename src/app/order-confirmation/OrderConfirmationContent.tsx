@@ -89,7 +89,7 @@ export default function OrderConfirmationContent() {
           <AlertCircle className="w-16 h-16 text-red-300 mx-auto mb-4" />
           <h1 className="font-display text-3xl font-bold text-charcoal mb-3">Something went wrong</h1>
           <p className="text-olive-600 mb-2">We couldn&apos;t load your order details.</p>
-          <p className="text-xs text-mauve-400 mb-6">If payment was successful, your order is being processed. Contact hello@pepika.com</p>
+          <p className="text-xs text-mauve-400 mb-6">If payment was successful, your order is being processed. Contact office@e2studio.hr</p>
           <Link href="/" className="btn-primary">Go Home</Link>
         </div>
       </div>
@@ -193,7 +193,7 @@ export default function OrderConfirmationContent() {
         </div>
 
         <p className="text-center text-xs text-mauve-400 mt-8">
-          Questions? Contact <a href="mailto:hello@pepika.com" className="text-burgundy-900 hover:underline">hello@pepika.com</a>
+          Questions? Contact <a href="mailto:office@e2studio.hr" className="text-burgundy-900 hover:underline">office@e2studio.hr</a>
         </p>
       </div>
     </section>

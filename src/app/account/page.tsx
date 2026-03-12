@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { User, Package, Heart, Settings, LogIn } from 'lucide-react'
 
-export const metadata = { title: 'My Account — Pepika' }
+export const metadata = { title: 'My Account — STUDIO E2' }
 
 export default function AccountPage() {
   return (

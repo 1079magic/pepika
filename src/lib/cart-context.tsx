@@ -120,7 +120,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   // Hydrate from localStorage on mount
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('pepika-cart')
+      const saved = localStorage.getItem('studio-e2-cart')
       if (saved) {
         const parsed = JSON.parse(saved)
         if (Array.isArray(parsed) && parsed.length > 0) {
@@ -137,7 +137,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!hydrated) return
     try {
-      localStorage.setItem('pepika-cart', JSON.stringify(state.items))
+      localStorage.setItem('studio-e2-cart', JSON.stringify(state.items))
     } catch {
       // ignore
     }

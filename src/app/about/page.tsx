@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { Award, Heart, Leaf, Users, Sparkles } from 'lucide-react'
 
 export const metadata = {
-  title: 'About Us — Pepika',
-  description: 'Learn about Pepika — premium personalised products handcrafted in our Croatian workshop.',
+  title: 'About Us — STUDIO E2',
+  description: 'Learn about STUDIO E2 — premium personalised products handcrafted in our Croatian workshop.',
 }
 
 export default function AboutPage() {
@@ -18,7 +18,7 @@ export default function AboutPage() {
                 Crafted with passion in <span className="text-burgundy-900 italic">Croatia</span>
               </h1>
               <p className="mt-5 text-olive-600 leading-relaxed text-lg">
-                Pepika was born from a simple idea: that every home deserves something personal.
+                STUDIO E2 was born from a simple idea: that every home deserves something personal.
                 We combine traditional craftsmanship with modern laser technology to create
                 products that tell your story.
               </p>

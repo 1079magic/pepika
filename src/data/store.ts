@@ -508,7 +508,7 @@ export const reviews: Review[] = [
   { id: 'rev-1', author: 'Marija K.', rating: 5, date: '2025-02-15', text: 'Absolutely stunning name plate! The engraving is incredibly precise and the aluminium finish is gorgeous. Our neighbours keep asking where we got it.', verified: true },
   { id: 'rev-2', author: 'Thomas B.', rating: 5, date: '2025-01-28', text: 'Ordered as a housewarming gift and it was a huge hit. Fast delivery to Germany and beautifully packaged.', verified: true },
   { id: 'rev-3', author: 'Ana S.', rating: 4, date: '2025-03-01', text: 'Great quality product. Only wish there were more font options, but the result is still beautiful.', verified: true },
-  { id: 'rev-4', author: 'Michael R.', rating: 5, date: '2025-02-20', text: 'Second order from Pepika and the quality is consistently excellent. The LED sign we ordered for our shop looks amazing.', verified: true },
+  { id: 'rev-4', author: 'Michael R.', rating: 5, date: '2025-02-20', text: 'Second order from STUDIO E2 and the quality is consistently excellent. The LED sign we ordered for our shop looks amazing.', verified: true },
   { id: 'rev-5', author: 'Elena V.', rating: 5, date: '2025-01-10', text: 'The personalised wall clock was the perfect wedding gift. Beautiful craftsmanship and arrived in perfect condition.', verified: true },
   { id: 'rev-6', author: 'Stefan M.', rating: 5, date: '2025-03-05', text: 'Got the custom map print for our anniversary. My wife cried happy tears. The paper quality is outstanding.', verified: true },
   { id: 'rev-7', author: 'Laura P.', rating: 4, date: '2025-02-08', text: 'Love the silver pendant. Delicate and beautifully engraved. Chain could be a bit sturdier but overall very happy.', verified: true },

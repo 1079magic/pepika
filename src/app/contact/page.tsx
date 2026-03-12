@@ -1,8 +1,8 @@
 import { Mail, Phone, MapPin, Clock } from 'lucide-react'
 
 export const metadata = {
-  title: 'Contact Us — Pepika',
-  description: 'Get in touch with Pepika. We are here to help with orders, personalisation, and any questions.',
+  title: 'Contact Us — STUDIO E2',
+  description: 'Get in touch with STUDIO E2. We are here to help with orders, personalisation, and any questions.',
 }
 
 export default function ContactPage() {
@@ -57,9 +57,9 @@ export default function ContactPage() {
                 <h2 className="font-display text-2xl font-bold text-charcoal mb-6">Get in Touch</h2>
                 <div className="space-y-5">
                   {[
-                    { icon: Mail, label: 'Email', value: 'hello@pepika.com', href: 'mailto:hello@pepika.com' },
-                    { icon: Phone, label: 'Phone', value: '+385 99 123 4567', href: 'tel:+385991234567' },
-                    { icon: MapPin, label: 'Location', value: 'Osijek, Croatia' },
+                    { icon: Mail, label: 'Email', value: 'office@e2studio.hr', href: 'mailto:office@e2studio.hr' },
+                    { icon: Phone, label: 'Phone', value: '+385 91 469 22 19', href: 'tel:+385914692219' },
+                    { icon: MapPin, label: 'Location', value: 'Ulica Petra Krešimira IV 36, Slavonski Brod, Hrvatska' },
                     { icon: Clock, label: 'Hours', value: 'Mon–Fri, 9:00–17:00 CET' },
                   ].map(item => (
                     <div key={item.label} className="flex items-start gap-4">
@@ -81,8 +81,8 @@ export default function ContactPage() {
               <div className="bg-olive-600 text-white rounded-2xl p-8">
                 <h3 className="font-display text-xl font-bold mb-3">Wholesale & Business</h3>
                 <p className="text-white/70 text-sm leading-relaxed mb-4">Interested in bulk orders or branded products? We offer special pricing for businesses.</p>
-                <a href="mailto:business@pepika.com" className="inline-flex items-center gap-2 text-sm font-medium text-beige-100 hover:text-white transition-colors">
-                  business@pepika.com →
+                <a href="mailto:office@e2studio.hr" className="inline-flex items-center gap-2 text-sm font-medium text-beige-100 hover:text-white transition-colors">
+                  office@e2studio.hr →
                 </a>
               </div>
             </div>

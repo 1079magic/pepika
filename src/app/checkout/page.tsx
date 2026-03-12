@@ -212,7 +212,7 @@ export default function CheckoutPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-charcoal mb-1.5">Phone <span className="text-mauve-300 font-normal">(optional)</span></label>
-                    <input type="tel" value={form.phone} onChange={e => updateField('phone', e.target.value)} placeholder="+385 99 123 4567" className={inputClass('phone')} />
+                    <input type="tel" value={form.phone} onChange={e => updateField('phone', e.target.value)} placeholder="+385 91 469 22 19" className={inputClass('phone')} />
                   </div>
                 </div>
               </div>

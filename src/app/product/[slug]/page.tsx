@@ -8,8 +8,8 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const product = products.find(p => p.slug === params.slug)
-  if (!product) return { title: 'Product Not Found — Pepika' }
-  return { title: `${product.name} — Pepika`, description: product.shortDescription }
+  if (!product) return { title: 'Product Not Found — STUDIO E2' }
+  return { title: `${product.name} — STUDIO E2`, description: product.shortDescription }
 }
 
 export default function ProductPage({ params }: { params: { slug: string } }) {

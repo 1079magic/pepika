@@ -28,7 +28,7 @@ export default function Header() {
       <div className="bg-burgundy-900 text-white text-center py-2 px-4 text-sm font-medium tracking-wide">
         <span className="mr-1">🎁</span> Free shipping over <strong>€100</strong>
         <span className="mx-2 opacity-40">|</span>
-        Code <strong>PEPIKA10</strong> for 10% off
+        Code <strong>E2STUDIO10</strong> for 10% off
         <Link href="/category/door-name-plates" className="ml-2 underline underline-offset-2 hover:text-blush-100 transition-colors">
           Shop now →
         </Link>
@@ -39,7 +39,7 @@ export default function Header() {
         <div className="container max-w-7xl mx-auto flex items-center justify-between h-16 px-4">
           {/* Logo */}
           <Link href="/" className="font-display text-3xl md:text-4xl font-bold text-burgundy-900 tracking-tight hover:text-mauve-500 transition-colors">
-            Pepika
+            STUDIO E2
           </Link>
 
           {/* Desktop Nav */}

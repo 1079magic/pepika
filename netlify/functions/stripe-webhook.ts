@@ -23,7 +23,7 @@ function buildOrderEmailHtml(session: Stripe.Checkout.Session): string {
     
     <div style="background: #632B30; padding: 24px 32px;">
       <h1 style="color: white; margin: 0; font-size: 24px;">🎉 New Order Received!</h1>
-      <p style="color: #F2D1C9; margin: 8px 0 0; font-size: 14px;">Pepika — Order Notification</p>
+      <p style="color: #F2D1C9; margin: 8px 0 0; font-size: 14px;">STUDIO E2 — Order Notification</p>
     </div>
 
     <div style="padding: 32px;">
@@ -58,7 +58,7 @@ function buildOrderEmailHtml(session: Stripe.Checkout.Session): string {
     </div>
 
     <div style="background: #6B683B; padding: 16px 32px; text-align: center;">
-      <p style="color: #E8D5C4; margin: 0; font-size: 12px;">Pepika — Premium Personalised Products · Osijek, Croatia</p>
+      <p style="color: #E8D5C4; margin: 0; font-size: 12px;">STUDIO E2 · Ulica Petra Krešimira IV 36, Slavonski Brod, Hrvatska · office@e2studio.hr</p>
     </div>
   </div>
 </body>
@@ -71,7 +71,7 @@ function buildOrderEmailText(session: Stripe.Checkout.Session): string {
   const amountTotal = session.amount_total ? (session.amount_total / 100).toFixed(2) : meta.total || '0.00'
 
   return `
-NEW ORDER RECEIVED — Pepika
+NEW ORDER RECEIVED — STUDIO E2
 
 Customer: ${meta.customer_name || 'N/A'}
 Email: ${meta.customer_email || session.customer_email || 'N/A'}
@@ -107,7 +107,7 @@ async function sendOrderEmail(session: Stripe.Checkout.Session) {
   const amountTotal = session.amount_total ? (session.amount_total / 100).toFixed(2) : meta.total || '0.00'
 
   await transporter.sendMail({
-    from: `"Pepika Orders" <${process.env.SMTP_USER || 'noreply@pepika.com'}>`,
+    from: `"STUDIO E2 Orders" <${process.env.SMTP_USER || 'office@e2studio.hr'}>`,
     to: OWNER_EMAIL,
     subject: `🎉 New Order €${amountTotal} — ${meta.customer_name || 'Customer'}`,
     text: buildOrderEmailText(session),
@@ -118,16 +118,16 @@ async function sendOrderEmail(session: Stripe.Checkout.Session) {
   const customerEmail = meta.customer_email || session.customer_email
   if (customerEmail) {
     await transporter.sendMail({
-      from: `"Pepika" <${process.env.SMTP_USER || 'noreply@pepika.com'}>`,
+      from: `"STUDIO E2" <${process.env.SMTP_USER || 'office@e2studio.hr'}>`,
       to: customerEmail,
-      subject: `Order Confirmed — Pepika #${(session.payment_intent as string || session.id).slice(-8).toUpperCase()}`,
-      text: `Thank you for your order!\n\nWe've received your payment of €${amountTotal} and your personalised products are being prepared.\n\nYou'll receive shipping updates by email.\n\nPepika Team`,
+      subject: `Order Confirmed — STUDIO E2 #${(session.payment_intent as string || session.id).slice(-8).toUpperCase()}`,
+      text: `Thank you for your order!\n\nWe've received your payment of €${amountTotal} and your personalised products are being prepared.\n\nYou'll receive shipping updates by email.\n\nSTUDIO E2 Team`,
       html: `
 <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 500px; margin: 0 auto; padding: 32px;">
   <h1 style="color: #632B30; font-size: 24px;">Thank you for your order!</h1>
   <p style="color: #6B683B; line-height: 1.6;">We've received your payment of <strong>€${amountTotal}</strong> and your personalised products are being carefully crafted in our workshop.</p>
   <p style="color: #6B683B; line-height: 1.6;">You'll receive shipping updates by email.</p>
-  <p style="color: #A67C89; margin-top: 24px;">With love, <br><strong style="color: #632B30;">The Pepika Team</strong></p>
+  <p style="color: #A67C89; margin-top: 24px;">With love, <br><strong style="color: #632B30;">The STUDIO E2 Team</strong></p>
 </div>`,
     })
   }

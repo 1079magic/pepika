@@ -8,9 +8,9 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const cat = categories.find(c => c.slug === params.slug)
-  if (!cat) return { title: 'Category Not Found — Pepika' }
+  if (!cat) return { title: 'Category Not Found — STUDIO E2' }
   return {
-    title: `${cat.name} — Pepika`,
+    title: `${cat.name} — STUDIO E2`,
     description: cat.description,
   }
 }

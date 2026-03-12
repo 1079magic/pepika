@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <Link href="/" className="font-display text-3xl font-bold text-white">Pepika</Link>
+            <Link href="/" className="font-display text-3xl font-bold text-white">STUDIO E2</Link>
             <p className="mt-3 text-sm text-beige-200/60 leading-relaxed">
               Premium personalised products, handcrafted in Croatia. From name plates to jewellery — each piece tells your story.
             </p>
@@ -72,15 +72,15 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-mauve-400" />
-                <span>Osijek, Croatia</span>
+                <span>Ulica Petra Krešimira IV 36<br/>Slavonski Brod, Hrvatska</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 shrink-0 text-mauve-400" />
-                <a href="mailto:hello@pepika.com" className="hover:text-mauve-300 transition-colors">hello@pepika.com</a>
+                <a href="mailto:office@e2studio.hr" className="hover:text-mauve-300 transition-colors">office@e2studio.hr</a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 shrink-0 text-mauve-400" />
-                <a href="tel:+385991234567" className="hover:text-mauve-300 transition-colors">+385 99 123 4567</a>
+                <a href="tel:+385914692219" className="hover:text-mauve-300 transition-colors">+385 91 469 22 19</a>
               </li>
             </ul>
           </div>
@@ -90,7 +90,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-olive-500/30">
         <div className="container max-w-7xl mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-beige-200/40">
-          <p>© {new Date().getFullYear()} Pepika. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} STUDIO E2. All rights reserved.</p>
           <div className="flex gap-5">
             <Link href="/about" className="hover:text-white/70 transition-colors">Privacy Policy</Link>
             <Link href="/about" className="hover:text-white/70 transition-colors">Terms of Service</Link>

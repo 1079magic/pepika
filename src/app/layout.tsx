@@ -7,9 +7,9 @@ import CartDrawer from '@/components/layout/CartDrawer'
 import CartToast from '@/components/layout/CartToast'
 
 export const metadata: Metadata = {
-  title: 'Pepika — Premium Personalised Products',
-  description: 'Premium laser-engraved name plates, house numbers & personalised gifts. Handcrafted in Croatia.',
-  keywords: ['personalised gifts', 'name plates', 'laser engraving', 'house numbers', 'Croatia'],
+  title: 'STUDIO E2 — Premium Personalised Products',
+  description: 'Premium laser-engraved name plates, house numbers & personalised gifts. Handcrafted in Croatia by STUDIO E2.',
+  keywords: ['personalised gifts', 'name plates', 'laser engraving', 'house numbers', 'Croatia', 'STUDIO E2'],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

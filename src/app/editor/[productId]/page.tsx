@@ -9,7 +9,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { productId: string } }) {
   const product = products.find(p => p.id === params.productId)
   return {
-    title: product ? `Personalise ${product.name} — Pepika` : 'Editor — Pepika',
+    title: product ? `Personalise ${product.name} — STUDIO E2` : 'Editor — STUDIO E2',
     description: product ? `Design your personalised ${product.name}` : undefined,
   }
 }

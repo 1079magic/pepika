@@ -45,7 +45,7 @@ export default function EditorToolbar({ state, actions }: Props) {
       </div>
       <Btn icon={<Download className="w-4 h-4" />} label="Export" onClick={() => {
         const d = actions.exportAsDataUrl(); if (!d) return
-        const a = document.createElement('a'); a.download = 'pepika-design.png'; a.href = d; a.click()
+        const a = document.createElement('a'); a.download = 'studio-e2-design.png'; a.href = d; a.click()
       }} disabled={state.objectCount === 0} variant="primary" />
       <input ref={fileRef} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={e => { const f = e.target.files?.[0]; if (f) { actions.addImage(f); e.target.value = '' } }} />
     </div>
