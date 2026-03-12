@@ -1,141 +1,109 @@
 'use client'
 
-import { useRef, useState, useCallback } from 'react'
-import dynamic from 'next/dynamic'
-import { Product } from '@/lib/types'
+import { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowLeft, ShoppingBag, Eye, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useCanvas } from '@/lib/use-canvas'
 import { useCart } from '@/lib/cart-context'
+import { formatPrice } from '@/lib/utils'
 import EditorToolbar from '@/components/editor/EditorToolbar'
+import CanvasEditor from '@/components/editor/CanvasEditor'
 import EditorSidebar from '@/components/editor/EditorSidebar'
+import type { Product } from '@/lib/types'
 
-interface CanvasEditorHandle {
-  addText: (text?: string) => void
-  addImage: (url: string) => void
-  deleteSelected: () => void
-  resetCanvas: () => void
-  exportImage: () => string | null
-  getCanvas: () => any
-}
+interface Props { product: Product }
 
-const CanvasEditor = dynamic(
-  () => import('../../../components/editor/CanvasEditor'),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="w-full aspect-square max-w-[600px] mx-auto rounded-2xl bg-white border border-beige-100 flex items-center justify-center">
-        <div className="flex flex-col items-center gap-3">
-          <div className="w-8 h-8 border-2 border-mauve-300 border-t-burgundy-900 rounded-full animate-spin" />
-          <p className="text-sm text-olive-600">Loading editor…</p>
-        </div>
-      </div>
-    ),
-  }
-)
-
-export default function EditorPageClient({ product }: { product: Product }) {
-  const editorRef = useRef<CanvasEditorHandle>(null)
-  const [hasSelection, setHasSelection] = useState(false)
-  const [selectionType, setSelectionType] = useState<string | undefined>()
-  const [hasDesign, setHasDesign] = useState(false)
+export default function EditorPageClient({ product }: Props) {
+  const [canvasState, canvasActions] = useCanvas()
   const { addItem } = useCart()
+  const [sidebarOpen, setSidebarOpen] = useState(true)
+  const [previewMode, setPreviewMode] = useState(false)
 
-  const handleSelectionChange = useCallback((selected: boolean, type?: string) => {
-    setHasSelection(selected)
-    setSelectionType(type)
-  }, [])
+  const handleAddToCart = () => {
+    const designData = canvasActions.exportAsJSON()
+    const personalization: Record<string, string> = {}
+    if (designData) personalization['__design'] = designData
+    personalization['Custom Design'] = 'Yes'
+    addItem(product, 1, personalization)
+  }
 
-  const handleModified = useCallback(() => setHasDesign(true), [])
-  const handleAddText = useCallback(() => editorRef.current?.addText(), [])
-  const handleAddImage = useCallback((url: string) => editorRef.current?.addImage(url), [])
-  const handleDelete = useCallback(() => editorRef.current?.deleteSelected(), [])
-  const handleReset = useCallback(() => { editorRef.current?.resetCanvas(); setHasDesign(false) }, [])
-
-  const handleExport = useCallback(() => {
-    const dataUrl = editorRef.current?.exportImage()
-    if (!dataUrl) return
-    const link = document.createElement('a')
-    link.download = `pepika-${product.slug}-design.png`
-    link.href = dataUrl
-    link.click()
-  }, [product.slug])
-
-  const handleTextStyle = useCallback((style: string, value: any) => {
-    const canvas = editorRef.current?.getCanvas()
-    if (!canvas) return
-    const obj = canvas.getActiveObject()
-    if (!obj || (obj.type !== 'i-text' && obj.type !== 'textbox')) return
-    if (style === 'fontWeight') obj.set('fontWeight', obj.fontWeight === 'bold' ? 'normal' : 'bold')
-    else if (style === 'fontStyle') obj.set('fontStyle', obj.fontStyle === 'italic' ? 'normal' : 'italic')
-    else obj.set(style, value)
-    canvas.renderAll()
-  }, [])
-
-  const handleTextColor = useCallback((color: string) => {
-    const canvas = editorRef.current?.getCanvas()
-    const obj = canvas?.getActiveObject()
-    if (obj) { obj.set('fill', color); canvas.renderAll() }
-  }, [])
-
-  const handleTextAlign = useCallback((align: string) => {
-    const canvas = editorRef.current?.getCanvas()
-    const obj = canvas?.getActiveObject()
-    if (obj) { obj.set('textAlign', align); canvas.renderAll() }
-  }, [])
-
-  const handleAddToCart = useCallback(() => {
-    addItem(product, 1, { design: 'Custom design applied' })
-  }, [product, addItem])
+  const previewDataUrl = previewMode ? canvasActions.exportAsDataUrl() : null
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f5f0ec' }}>
-      {/* Editor Header */}
-      <div className="bg-white border-b border-beige-100 sticky top-0 z-40">
-        <div className="container max-w-[1400px] mx-auto px-4 py-3 flex items-center justify-between">
-          <h1 className="font-display text-xl md:text-2xl font-bold text-burgundy-900">
-            Personalisation Editor
-          </h1>
-          <span className="hidden sm:inline-flex px-2.5 py-1 bg-mauve-50 text-mauve-600 text-[10px] font-semibold uppercase tracking-widest rounded-full border border-mauve-200">
-            {product.name}
-          </span>
+    <div className="flex flex-col overflow-hidden" style={{ height: 'calc(100vh - 6.5rem)' }}>
+      {/* TOP BAR */}
+      <div className="flex items-center justify-between px-4 py-2.5 bg-white border-b border-beige-100 shrink-0">
+        <div className="flex items-center gap-3">
+          <Link href={`/product/${product.slug}`} className="flex items-center gap-1.5 text-sm text-olive-600 hover:text-burgundy-900 transition-colors">
+            <ArrowLeft className="w-4 h-4" /><span className="hidden sm:inline">Back</span>
+          </Link>
+          <div className="w-px h-6 bg-beige-100" />
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg overflow-hidden bg-beige-50 relative shrink-0">
+              <Image src={product.images[0]} alt={product.name} fill className="object-cover" sizes="40px" />
+            </div>
+            <div className="hidden sm:block">
+              <p className="text-sm font-semibold text-charcoal leading-tight">{product.name}</p>
+              <p className="text-xs text-mauve-400">{formatPrice(product.price)}</p>
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <button onClick={() => setPreviewMode(!previewMode)} className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all ${previewMode ? 'bg-mauve-500 text-white' : 'text-olive-600 hover:bg-beige-50 border border-beige-200'}`}>
+            <Eye className="w-4 h-4" /><span className="hidden sm:inline">{previewMode ? 'Edit' : 'Preview'}</span>
+          </button>
+          <button onClick={handleAddToCart} disabled={canvasState.objectCount === 0}
+            className="flex items-center gap-1.5 px-4 py-2 bg-burgundy-900 text-white rounded-lg text-sm font-medium hover:bg-burgundy-950 transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-sm">
+            <ShoppingBag className="w-4 h-4" /><span className="hidden sm:inline">Add to Cart</span>
+          </button>
         </div>
       </div>
 
-      {/* Editor Layout */}
-      <div className="container max-w-[1400px] mx-auto px-4 py-6">
-        <div className="grid lg:grid-cols-[220px_1fr_260px] gap-5">
-          {/* Left — Toolbar */}
-          <aside className="order-2 lg:order-1">
-            <div className="lg:sticky lg:top-20">
-              <EditorToolbar
-                onAddImage={handleAddImage} onAddText={handleAddText}
-                onDelete={handleDelete} onReset={handleReset} onExport={handleExport}
-                hasSelection={hasSelection} selectionType={selectionType}
-                onTextStyle={handleTextStyle} onTextColor={handleTextColor} onTextAlign={handleTextAlign}
-              />
-            </div>
-          </aside>
+      {/* TOOLBAR */}
+      {!previewMode && <EditorToolbar state={canvasState} actions={canvasActions} />}
 
-          {/* Center — Canvas */}
-          <main className="order-1 lg:order-2">
-            <CanvasEditor
-              ref={editorRef}
-              width={600}
-              height={600}
-              backgroundImage={product.images[0]}
-              onSelectionChange={handleSelectionChange}
-              onModified={handleModified}
-            />
-            <p className="text-center text-[11px] text-mauve-400 mt-3">
-              Click to select · Double-click text to edit · Drag to reposition · Delete key to remove
-            </p>
-          </main>
-
-          {/* Right — Sidebar */}
-          <aside className="order-3">
-            <div className="lg:sticky lg:top-20">
-              <EditorSidebar product={product} onAddToCart={handleAddToCart} hasDesign={hasDesign} />
+      {/* MAIN */}
+      <div className="flex flex-1 overflow-hidden relative">
+        {previewMode && previewDataUrl ? (
+          <div className="flex-1 flex items-center justify-center p-8" style={{ backgroundColor: '#f5f0ed' }}>
+            <div className="text-center">
+              <p className="text-xs uppercase tracking-widest text-mauve-400 font-medium mb-4">Design Preview</p>
+              <div className="rounded-xl shadow-2xl ring-1 ring-beige-200/50 overflow-hidden inline-block">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={previewDataUrl} alt="Preview" className="max-w-[600px] max-h-[600px]" />
+              </div>
+              <div className="mt-6 flex gap-3 justify-center">
+                <button onClick={() => setPreviewMode(false)} className="btn-outline text-sm px-5 py-2">Back to Editor</button>
+                <button onClick={handleAddToCart} className="btn-primary text-sm px-5 py-2 gap-2">
+                  <ShoppingBag className="w-4 h-4" /> Add to Cart — {formatPrice(product.price)}
+                </button>
+              </div>
             </div>
-          </aside>
+          </div>
+        ) : (
+          <CanvasEditor initCanvas={canvasActions.initCanvas} productImage={product.images[0]} />
+        )}
+
+        {!previewMode && (
+          <button onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 w-6 h-16 bg-white border border-beige-200 rounded-l-lg flex items-center justify-center shadow-sm">
+            {sidebarOpen ? <ChevronRight className="w-3.5 h-3.5" /> : <ChevronLeft className="w-3.5 h-3.5" />}
+          </button>
+        )}
+
+        {!previewMode && sidebarOpen && <EditorSidebar state={canvasState} actions={canvasActions} />}
+      </div>
+
+      {/* BOTTOM BAR (mobile) */}
+      <div className="sm:hidden flex items-center justify-between px-4 py-2.5 bg-white border-t border-beige-100 shrink-0">
+        <div className="flex items-center gap-2 text-xs text-mauve-400">
+          <Sparkles className="w-3.5 h-3.5" />{canvasState.objectCount} element{canvasState.objectCount !== 1 ? 's' : ''}
         </div>
+        <button onClick={handleAddToCart} disabled={canvasState.objectCount === 0}
+          className="flex items-center gap-1.5 px-4 py-2 bg-burgundy-900 text-white rounded-lg text-sm font-medium disabled:opacity-40">
+          <ShoppingBag className="w-4 h-4" /> Add — {formatPrice(product.price)}
+        </button>
       </div>
     </div>
   )
