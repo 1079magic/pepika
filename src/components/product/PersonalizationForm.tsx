@@ -100,16 +100,13 @@ export default function PersonalizationForm({ product }: PersonalizationFormProp
             </div>
           ))}
 
-          {/* Start Personalizing CTA — links to future editor */}
+          {/* Start Personalizing CTA — links to editor */}
           <Link
             href={`/editor/${product.id}`}
             className="flex items-center justify-center gap-2 w-full px-5 py-3 bg-mauve-50 text-burgundy-900 font-medium rounded-xl border border-mauve-200 hover:bg-mauve-100 hover:border-mauve-300 transition-all group"
           >
             <Wand2 className="w-4 h-4 text-mauve-500 group-hover:text-burgundy-900 transition-colors" />
-            Open Advanced Editor
-            <span className="text-[10px] uppercase tracking-wider bg-mauve-200/60 text-mauve-700 px-1.5 py-0.5 rounded font-semibold ml-1">
-              Soon
-            </span>
+            Start Personalizing
           </Link>
         </div>
       )}
