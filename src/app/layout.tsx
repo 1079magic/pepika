@@ -4,6 +4,7 @@ import { CartProvider } from '@/lib/cart-context'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CartDrawer from '@/components/layout/CartDrawer'
+import CartToast from '@/components/layout/CartToast'
 
 export const metadata: Metadata = {
   title: 'Pepika — Premium Personalised Products',
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="flex-1">{children}</main>
           <Footer />
           <CartDrawer />
+          <CartToast />
         </CartProvider>
       </body>
     </html>

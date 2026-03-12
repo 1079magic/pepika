@@ -7,9 +7,7 @@ import { useCart } from '@/lib/cart-context'
 import { formatPrice } from '@/lib/utils'
 
 export default function CheckoutPage() {
-  const { items, subtotal, itemCount } = useCart()
-  const shipping = subtotal >= 100 ? 0 : 7.99
-  const total = subtotal + shipping
+  const { items, subtotal, shipping, total, itemCount, getItemKey } = useCart()
 
   if (items.length === 0) {
     return (
@@ -78,7 +76,7 @@ export default function CheckoutPage() {
               <h2 className="font-display text-lg font-semibold text-charcoal mb-4">Order Summary</h2>
               <div className="divide-y divide-beige-100">
                 {items.map(item => (
-                  <div key={item.product.id} className="flex gap-3 py-3">
+                  <div key={getItemKey(item)} className="flex gap-3 py-3">
                     <div className="w-14 h-14 rounded-lg overflow-hidden bg-beige-50 shrink-0 relative">
                       <Image src={item.product.images[0]} alt={item.product.name} fill className="object-cover" />
                       <span className="absolute -top-1 -right-1 w-5 h-5 bg-burgundy-900 text-white text-xs rounded-full flex items-center justify-center">{item.quantity}</span>
